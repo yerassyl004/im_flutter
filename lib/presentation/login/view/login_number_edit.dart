@@ -44,7 +44,6 @@ class LoginNumberEdit extends StatelessWidget {
                 ),
               ),
             ),
-
             SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,

@@ -29,7 +29,7 @@ class WelcomeEditingPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Выбирайте язык',
+                    isLanguagePage ? 'Выбирайте язык' : 'Войдите в профиль',
                     style: AppTextStyle.bold25(),
                     textAlign: TextAlign.center,
                   ),

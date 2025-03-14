@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:im_flutter/presentation/app/view/app_view.dart';
 import 'package:im_flutter/presentation/login/login_page.dart';
+import 'package:im_flutter/presentation/main/view/main.dart';
 
 class MainNavigation {
   static const String app = '/';
@@ -39,6 +40,11 @@ class MainNavigation {
           name: login,
           path: login,
           builder: (context, state) => LoginPage(),
+        ),
+        GoRoute(
+          name: main,
+          path: main,
+          builder: (context, state) => MainView(),
         ),
       ],
     );

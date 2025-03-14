@@ -25,8 +25,10 @@ mixin _$LoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -36,8 +38,10 @@ mixin _$LoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -47,8 +51,10 @@ mixin _$LoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,8 +65,10 @@ mixin _$LoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -70,8 +78,10 @@ mixin _$LoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -81,8 +91,10 @@ mixin _$LoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -132,12 +144,20 @@ class __$$InitLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitLoginEventImpl implements InitLoginEvent {
+class _$InitLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements InitLoginEvent {
   const _$InitLoginEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.init()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginEvent.init'));
   }
 
   @override
@@ -158,8 +178,10 @@ class _$InitLoginEventImpl implements InitLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return init();
   }
@@ -173,8 +195,10 @@ class _$InitLoginEventImpl implements InitLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return init?.call();
   }
@@ -188,8 +212,10 @@ class _$InitLoginEventImpl implements InitLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -207,8 +233,10 @@ class _$InitLoginEventImpl implements InitLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return init(this);
   }
@@ -222,8 +250,10 @@ class _$InitLoginEventImpl implements InitLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return init?.call(this);
   }
@@ -237,8 +267,10 @@ class _$InitLoginEventImpl implements InitLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -301,15 +333,25 @@ class __$$SubmitLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SubmitLoginEventImpl implements SubmitLoginEvent {
+class _$SubmitLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements SubmitLoginEvent {
   const _$SubmitLoginEventImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.submit(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.submit'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -343,8 +385,10 @@ class _$SubmitLoginEventImpl implements SubmitLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return submit(data);
   }
@@ -358,8 +402,10 @@ class _$SubmitLoginEventImpl implements SubmitLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return submit?.call(data);
   }
@@ -373,8 +419,10 @@ class _$SubmitLoginEventImpl implements SubmitLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -392,8 +440,10 @@ class _$SubmitLoginEventImpl implements SubmitLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return submit(this);
   }
@@ -407,8 +457,10 @@ class _$SubmitLoginEventImpl implements SubmitLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return submit?.call(this);
   }
@@ -422,8 +474,10 @@ class _$SubmitLoginEventImpl implements SubmitLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -468,12 +522,20 @@ class __$$EditNumberLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
+class _$EditNumberLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements EditNumberLoginEvent {
   const _$EditNumberLoginEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.editNumber()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginEvent.editNumber'));
   }
 
   @override
@@ -495,8 +557,10 @@ class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return editNumber();
   }
@@ -510,8 +574,10 @@ class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return editNumber?.call();
   }
@@ -525,8 +591,10 @@ class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (editNumber != null) {
@@ -544,8 +612,10 @@ class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return editNumber(this);
   }
@@ -559,8 +629,10 @@ class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return editNumber?.call(this);
   }
@@ -574,8 +646,10 @@ class _$EditNumberLoginEventImpl implements EditNumberLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (editNumber != null) {
@@ -638,15 +712,25 @@ class __$$SmsLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SmsLoginEventImpl implements SmsLoginEvent {
+class _$SmsLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements SmsLoginEvent {
   const _$SmsLoginEventImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.sms(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.sms'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -677,8 +761,10 @@ class _$SmsLoginEventImpl implements SmsLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return sms(data);
   }
@@ -692,8 +778,10 @@ class _$SmsLoginEventImpl implements SmsLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return sms?.call(data);
   }
@@ -707,8 +795,10 @@ class _$SmsLoginEventImpl implements SmsLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (sms != null) {
@@ -726,8 +816,10 @@ class _$SmsLoginEventImpl implements SmsLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return sms(this);
   }
@@ -741,8 +833,10 @@ class _$SmsLoginEventImpl implements SmsLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return sms?.call(this);
   }
@@ -756,8 +850,10 @@ class _$SmsLoginEventImpl implements SmsLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (sms != null) {
@@ -828,15 +924,25 @@ class __$$EditUserNameLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
+class _$EditUserNameLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements EditUserNameLoginEvent {
   const _$EditUserNameLoginEventImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.editUserName(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.editUserName'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -871,8 +977,10 @@ class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return editUserName(data);
   }
@@ -886,8 +994,10 @@ class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return editUserName?.call(data);
   }
@@ -901,8 +1011,10 @@ class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (editUserName != null) {
@@ -920,8 +1032,10 @@ class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return editUserName(this);
   }
@@ -935,8 +1049,10 @@ class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return editUserName?.call(this);
   }
@@ -950,8 +1066,10 @@ class _$EditUserNameLoginEventImpl implements EditUserNameLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (editUserName != null) {
@@ -1023,15 +1141,25 @@ class __$$UserNameLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserNameLoginEventImpl implements UserNameLoginEvent {
+class _$UserNameLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements UserNameLoginEvent {
   const _$UserNameLoginEventImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.address(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.address'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -1065,8 +1193,10 @@ class _$UserNameLoginEventImpl implements UserNameLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return address(data);
   }
@@ -1080,8 +1210,10 @@ class _$UserNameLoginEventImpl implements UserNameLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return address?.call(data);
   }
@@ -1095,8 +1227,10 @@ class _$UserNameLoginEventImpl implements UserNameLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (address != null) {
@@ -1114,8 +1248,10 @@ class _$UserNameLoginEventImpl implements UserNameLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return address(this);
   }
@@ -1129,8 +1265,10 @@ class _$UserNameLoginEventImpl implements UserNameLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return address?.call(this);
   }
@@ -1144,8 +1282,10 @@ class _$UserNameLoginEventImpl implements UserNameLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (address != null) {
@@ -1165,6 +1305,222 @@ abstract class UserNameLoginEvent implements LoginEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserNameLoginEventImplCopyWith<_$UserNameLoginEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HolidayLoginEventImplCopyWith<$Res> {
+  factory _$$HolidayLoginEventImplCopyWith(
+    _$HolidayLoginEventImpl value,
+    $Res Function(_$HolidayLoginEventImpl) then,
+  ) = __$$HolidayLoginEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({LoginData data});
+
+  $LoginDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$HolidayLoginEventImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$HolidayLoginEventImpl>
+    implements _$$HolidayLoginEventImplCopyWith<$Res> {
+  __$$HolidayLoginEventImplCopyWithImpl(
+    _$HolidayLoginEventImpl _value,
+    $Res Function(_$HolidayLoginEventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? data = null}) {
+    return _then(
+      _$HolidayLoginEventImpl(
+        null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as LoginData,
+      ),
+    );
+  }
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LoginDataCopyWith<$Res> get data {
+    return $LoginDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$HolidayLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements HolidayLoginEvent {
+  const _$HolidayLoginEventImpl(this.data);
+
+  @override
+  final LoginData data;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginEvent.holiday(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.holiday'))
+      ..add(DiagnosticsProperty('data', data));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HolidayLoginEventImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HolidayLoginEventImplCopyWith<_$HolidayLoginEventImpl> get copyWith =>
+      __$$HolidayLoginEventImplCopyWithImpl<_$HolidayLoginEventImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(LoginData data) submit,
+    required TResult Function() editNumber,
+    required TResult Function(LoginData data) sms,
+    required TResult Function(LoginData data) editUserName,
+    required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
+    required TResult Function() error,
+    required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
+  }) {
+    return holiday(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(LoginData data)? submit,
+    TResult? Function()? editNumber,
+    TResult? Function(LoginData data)? sms,
+    TResult? Function(LoginData data)? editUserName,
+    TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
+    TResult? Function()? error,
+    TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
+  }) {
+    return holiday?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(LoginData data)? submit,
+    TResult Function()? editNumber,
+    TResult Function(LoginData data)? sms,
+    TResult Function(LoginData data)? editUserName,
+    TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
+    TResult Function()? error,
+    TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
+    required TResult orElse(),
+  }) {
+    if (holiday != null) {
+      return holiday(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitLoginEvent value) init,
+    required TResult Function(SubmitLoginEvent value) submit,
+    required TResult Function(EditNumberLoginEvent value) editNumber,
+    required TResult Function(SmsLoginEvent value) sms,
+    required TResult Function(EditUserNameLoginEvent value) editUserName,
+    required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
+    required TResult Function(ErrorLoginEvent value) error,
+    required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
+  }) {
+    return holiday(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitLoginEvent value)? init,
+    TResult? Function(SubmitLoginEvent value)? submit,
+    TResult? Function(EditNumberLoginEvent value)? editNumber,
+    TResult? Function(SmsLoginEvent value)? sms,
+    TResult? Function(EditUserNameLoginEvent value)? editUserName,
+    TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
+    TResult? Function(ErrorLoginEvent value)? error,
+    TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
+  }) {
+    return holiday?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitLoginEvent value)? init,
+    TResult Function(SubmitLoginEvent value)? submit,
+    TResult Function(EditNumberLoginEvent value)? editNumber,
+    TResult Function(SmsLoginEvent value)? sms,
+    TResult Function(EditUserNameLoginEvent value)? editUserName,
+    TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
+    TResult Function(ErrorLoginEvent value)? error,
+    TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
+    required TResult orElse(),
+  }) {
+    if (holiday != null) {
+      return holiday(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HolidayLoginEvent implements LoginEvent {
+  const factory HolidayLoginEvent(final LoginData data) =
+      _$HolidayLoginEventImpl;
+
+  LoginData get data;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HolidayLoginEventImplCopyWith<_$HolidayLoginEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1191,12 +1547,20 @@ class __$$ErrorLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorLoginEventImpl implements ErrorLoginEvent {
+class _$ErrorLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements ErrorLoginEvent {
   const _$ErrorLoginEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.error()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginEvent.error'));
   }
 
   @override
@@ -1217,8 +1581,10 @@ class _$ErrorLoginEventImpl implements ErrorLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return error();
   }
@@ -1232,8 +1598,10 @@ class _$ErrorLoginEventImpl implements ErrorLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return error?.call();
   }
@@ -1247,8 +1615,10 @@ class _$ErrorLoginEventImpl implements ErrorLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1266,8 +1636,10 @@ class _$ErrorLoginEventImpl implements ErrorLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return error(this);
   }
@@ -1281,8 +1653,10 @@ class _$ErrorLoginEventImpl implements ErrorLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return error?.call(this);
   }
@@ -1296,8 +1670,10 @@ class _$ErrorLoginEventImpl implements ErrorLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1334,12 +1710,20 @@ class __$$LoadingLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingLoginEventImpl implements LoadingLoginEvent {
+class _$LoadingLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements LoadingLoginEvent {
   const _$LoadingLoginEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginEvent.loading'));
   }
 
   @override
@@ -1360,8 +1744,10 @@ class _$LoadingLoginEventImpl implements LoadingLoginEvent {
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
   }) {
     return loading();
   }
@@ -1375,8 +1761,10 @@ class _$LoadingLoginEventImpl implements LoadingLoginEvent {
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return loading?.call();
   }
@@ -1390,8 +1778,10 @@ class _$LoadingLoginEventImpl implements LoadingLoginEvent {
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1409,8 +1799,10 @@ class _$LoadingLoginEventImpl implements LoadingLoginEvent {
     required TResult Function(SmsLoginEvent value) sms,
     required TResult Function(EditUserNameLoginEvent value) editUserName,
     required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
     required TResult Function(ErrorLoginEvent value) error,
     required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
   }) {
     return loading(this);
   }
@@ -1424,8 +1816,10 @@ class _$LoadingLoginEventImpl implements LoadingLoginEvent {
     TResult? Function(SmsLoginEvent value)? sms,
     TResult? Function(EditUserNameLoginEvent value)? editUserName,
     TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
     TResult? Function(ErrorLoginEvent value)? error,
     TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
   }) {
     return loading?.call(this);
   }
@@ -1439,8 +1833,10 @@ class _$LoadingLoginEventImpl implements LoadingLoginEvent {
     TResult Function(SmsLoginEvent value)? sms,
     TResult Function(EditUserNameLoginEvent value)? editUserName,
     TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
     TResult Function(ErrorLoginEvent value)? error,
     TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1455,6 +1851,209 @@ abstract class LoadingLoginEvent implements LoginEvent {
 }
 
 /// @nodoc
+abstract class _$$NavigateLoginEventImplCopyWith<$Res> {
+  factory _$$NavigateLoginEventImplCopyWith(
+    _$NavigateLoginEventImpl value,
+    $Res Function(_$NavigateLoginEventImpl) then,
+  ) = __$$NavigateLoginEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Dest dest});
+}
+
+/// @nodoc
+class __$$NavigateLoginEventImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$NavigateLoginEventImpl>
+    implements _$$NavigateLoginEventImplCopyWith<$Res> {
+  __$$NavigateLoginEventImplCopyWithImpl(
+    _$NavigateLoginEventImpl _value,
+    $Res Function(_$NavigateLoginEventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? dest = null}) {
+    return _then(
+      _$NavigateLoginEventImpl(
+        null == dest
+            ? _value.dest
+            : dest // ignore: cast_nullable_to_non_nullable
+                as Dest,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$NavigateLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements NavigateLoginEvent {
+  const _$NavigateLoginEventImpl(this.dest);
+
+  @override
+  final Dest dest;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginEvent.navigate(dest: $dest)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.navigate'))
+      ..add(DiagnosticsProperty('dest', dest));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NavigateLoginEventImpl &&
+            (identical(other.dest, dest) || other.dest == dest));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dest);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NavigateLoginEventImplCopyWith<_$NavigateLoginEventImpl> get copyWith =>
+      __$$NavigateLoginEventImplCopyWithImpl<_$NavigateLoginEventImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(LoginData data) submit,
+    required TResult Function() editNumber,
+    required TResult Function(LoginData data) sms,
+    required TResult Function(LoginData data) editUserName,
+    required TResult Function(LoginData data) address,
+    required TResult Function(LoginData data) holiday,
+    required TResult Function() error,
+    required TResult Function() loading,
+    required TResult Function(Dest dest) navigate,
+  }) {
+    return navigate(dest);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(LoginData data)? submit,
+    TResult? Function()? editNumber,
+    TResult? Function(LoginData data)? sms,
+    TResult? Function(LoginData data)? editUserName,
+    TResult? Function(LoginData data)? address,
+    TResult? Function(LoginData data)? holiday,
+    TResult? Function()? error,
+    TResult? Function()? loading,
+    TResult? Function(Dest dest)? navigate,
+  }) {
+    return navigate?.call(dest);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(LoginData data)? submit,
+    TResult Function()? editNumber,
+    TResult Function(LoginData data)? sms,
+    TResult Function(LoginData data)? editUserName,
+    TResult Function(LoginData data)? address,
+    TResult Function(LoginData data)? holiday,
+    TResult Function()? error,
+    TResult Function()? loading,
+    TResult Function(Dest dest)? navigate,
+    required TResult orElse(),
+  }) {
+    if (navigate != null) {
+      return navigate(dest);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitLoginEvent value) init,
+    required TResult Function(SubmitLoginEvent value) submit,
+    required TResult Function(EditNumberLoginEvent value) editNumber,
+    required TResult Function(SmsLoginEvent value) sms,
+    required TResult Function(EditUserNameLoginEvent value) editUserName,
+    required TResult Function(UserNameLoginEvent value) address,
+    required TResult Function(HolidayLoginEvent value) holiday,
+    required TResult Function(ErrorLoginEvent value) error,
+    required TResult Function(LoadingLoginEvent value) loading,
+    required TResult Function(NavigateLoginEvent value) navigate,
+  }) {
+    return navigate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitLoginEvent value)? init,
+    TResult? Function(SubmitLoginEvent value)? submit,
+    TResult? Function(EditNumberLoginEvent value)? editNumber,
+    TResult? Function(SmsLoginEvent value)? sms,
+    TResult? Function(EditUserNameLoginEvent value)? editUserName,
+    TResult? Function(UserNameLoginEvent value)? address,
+    TResult? Function(HolidayLoginEvent value)? holiday,
+    TResult? Function(ErrorLoginEvent value)? error,
+    TResult? Function(LoadingLoginEvent value)? loading,
+    TResult? Function(NavigateLoginEvent value)? navigate,
+  }) {
+    return navigate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitLoginEvent value)? init,
+    TResult Function(SubmitLoginEvent value)? submit,
+    TResult Function(EditNumberLoginEvent value)? editNumber,
+    TResult Function(SmsLoginEvent value)? sms,
+    TResult Function(EditUserNameLoginEvent value)? editUserName,
+    TResult Function(UserNameLoginEvent value)? address,
+    TResult Function(HolidayLoginEvent value)? holiday,
+    TResult Function(ErrorLoginEvent value)? error,
+    TResult Function(LoadingLoginEvent value)? loading,
+    TResult Function(NavigateLoginEvent value)? navigate,
+    required TResult orElse(),
+  }) {
+    if (navigate != null) {
+      return navigate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavigateLoginEvent implements LoginEvent {
+  const factory NavigateLoginEvent(final Dest dest) = _$NavigateLoginEventImpl;
+
+  Dest get dest;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NavigateLoginEventImplCopyWith<_$NavigateLoginEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -1464,9 +2063,11 @@ mixin _$LoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -1476,9 +2077,11 @@ mixin _$LoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -1488,9 +2091,11 @@ mixin _$LoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1501,10 +2106,12 @@ mixin _$LoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -1514,9 +2121,11 @@ mixin _$LoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -1526,9 +2135,11 @@ mixin _$LoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -1578,12 +2189,20 @@ class __$$InitialLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialLoginEventImpl implements InitialLoginEvent {
+class _$InitialLoginEventImpl
+    with DiagnosticableTreeMixin
+    implements InitialLoginEvent {
   const _$InitialLoginEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.inital()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginState.inital'));
   }
 
   @override
@@ -1604,9 +2223,11 @@ class _$InitialLoginEventImpl implements InitialLoginEvent {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return inital();
   }
@@ -1620,9 +2241,11 @@ class _$InitialLoginEventImpl implements InitialLoginEvent {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return inital?.call();
   }
@@ -1636,9 +2259,11 @@ class _$InitialLoginEventImpl implements InitialLoginEvent {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (inital != null) {
@@ -1656,10 +2281,12 @@ class _$InitialLoginEventImpl implements InitialLoginEvent {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return inital(this);
   }
@@ -1673,9 +2300,11 @@ class _$InitialLoginEventImpl implements InitialLoginEvent {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return inital?.call(this);
   }
@@ -1689,9 +2318,11 @@ class _$InitialLoginEventImpl implements InitialLoginEvent {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (inital != null) {
@@ -1754,15 +2385,25 @@ class __$$EditingNumberLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
+class _$EditingNumberLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements EditingNumberLoginState {
   const _$EditingNumberLoginStateImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.editingNumber(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.editingNumber'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -1795,9 +2436,11 @@ class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return editingNumber(data);
   }
@@ -1811,9 +2454,11 @@ class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return editingNumber?.call(data);
   }
@@ -1827,9 +2472,11 @@ class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (editingNumber != null) {
@@ -1847,10 +2494,12 @@ class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return editingNumber(this);
   }
@@ -1864,9 +2513,11 @@ class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return editingNumber?.call(this);
   }
@@ -1880,9 +2531,11 @@ class _$EditingNumberLoginStateImpl implements EditingNumberLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (editingNumber != null) {
@@ -1954,15 +2607,25 @@ class __$$EditingUserNameLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
+class _$EditingUserNameLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements EditingUserNameLoginState {
   const _$EditingUserNameLoginStateImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.editingUserName(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.editingUserName'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -1995,9 +2658,11 @@ class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return editingUserName(data);
   }
@@ -2011,9 +2676,11 @@ class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return editingUserName?.call(data);
   }
@@ -2027,9 +2694,11 @@ class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (editingUserName != null) {
@@ -2047,10 +2716,12 @@ class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return editingUserName(this);
   }
@@ -2064,9 +2735,11 @@ class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return editingUserName?.call(this);
   }
@@ -2080,9 +2753,11 @@ class _$EditingUserNameLoginStateImpl implements EditingUserNameLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (editingUserName != null) {
@@ -2154,15 +2829,25 @@ class __$$EditingAddressLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
+class _$EditingAddressLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements EditingAddressLoginState {
   const _$EditingAddressLoginStateImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.editingAddress(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.editingAddress'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -2195,9 +2880,11 @@ class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return editingAddress(data);
   }
@@ -2211,9 +2898,11 @@ class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return editingAddress?.call(data);
   }
@@ -2227,9 +2916,11 @@ class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (editingAddress != null) {
@@ -2247,10 +2938,12 @@ class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return editingAddress(this);
   }
@@ -2264,9 +2957,11 @@ class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return editingAddress?.call(this);
   }
@@ -2280,9 +2975,11 @@ class _$EditingAddressLoginStateImpl implements EditingAddressLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (editingAddress != null) {
@@ -2354,15 +3051,25 @@ class __$$SmsLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SmsLoginStateImpl implements SmsLoginState {
+class _$SmsLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements SmsLoginState {
   const _$SmsLoginStateImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.sms(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.sms'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -2393,9 +3100,11 @@ class _$SmsLoginStateImpl implements SmsLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return sms(data);
   }
@@ -2409,9 +3118,11 @@ class _$SmsLoginStateImpl implements SmsLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return sms?.call(data);
   }
@@ -2425,9 +3136,11 @@ class _$SmsLoginStateImpl implements SmsLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (sms != null) {
@@ -2445,10 +3158,12 @@ class _$SmsLoginStateImpl implements SmsLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return sms(this);
   }
@@ -2462,9 +3177,11 @@ class _$SmsLoginStateImpl implements SmsLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return sms?.call(this);
   }
@@ -2478,9 +3195,11 @@ class _$SmsLoginStateImpl implements SmsLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (sms != null) {
@@ -2525,12 +3244,20 @@ class __$$LoadingLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingLoginStateImpl implements LoadingLoginState {
+class _$LoadingLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements LoadingLoginState {
   const _$LoadingLoginStateImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginState.loading'));
   }
 
   @override
@@ -2551,9 +3278,11 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return loading();
   }
@@ -2567,9 +3296,11 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return loading?.call();
   }
@@ -2583,9 +3314,11 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2603,10 +3336,12 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return loading(this);
   }
@@ -2620,9 +3355,11 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return loading?.call(this);
   }
@@ -2636,9 +3373,11 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2650,6 +3389,229 @@ class _$LoadingLoginStateImpl implements LoadingLoginState {
 
 abstract class LoadingLoginState implements LoginState {
   const factory LoadingLoginState() = _$LoadingLoginStateImpl;
+}
+
+/// @nodoc
+abstract class _$$HolidaysLoginStateImplCopyWith<$Res> {
+  factory _$$HolidaysLoginStateImplCopyWith(
+    _$HolidaysLoginStateImpl value,
+    $Res Function(_$HolidaysLoginStateImpl) then,
+  ) = __$$HolidaysLoginStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({LoginData data});
+
+  $LoginDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$HolidaysLoginStateImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$HolidaysLoginStateImpl>
+    implements _$$HolidaysLoginStateImplCopyWith<$Res> {
+  __$$HolidaysLoginStateImplCopyWithImpl(
+    _$HolidaysLoginStateImpl _value,
+    $Res Function(_$HolidaysLoginStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? data = null}) {
+    return _then(
+      _$HolidaysLoginStateImpl(
+        null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as LoginData,
+      ),
+    );
+  }
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LoginDataCopyWith<$Res> get data {
+    return $LoginDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$HolidaysLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements HolidaysLoginState {
+  const _$HolidaysLoginStateImpl(this.data);
+
+  @override
+  final LoginData data;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginState.holidays(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.holidays'))
+      ..add(DiagnosticsProperty('data', data));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HolidaysLoginStateImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HolidaysLoginStateImplCopyWith<_$HolidaysLoginStateImpl> get copyWith =>
+      __$$HolidaysLoginStateImplCopyWithImpl<_$HolidaysLoginStateImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() inital,
+    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data) editingUserName,
+    required TResult Function(LoginData data) editingAddress,
+    required TResult Function(LoginData data) sms,
+    required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
+    required TResult Function(LoginData data) success,
+    required TResult Function(String message) error,
+    required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
+  }) {
+    return holidays(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
+    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data)? editingUserName,
+    TResult? Function(LoginData data)? editingAddress,
+    TResult? Function(LoginData data)? sms,
+    TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
+    TResult? Function(LoginData data)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
+  }) {
+    return holidays?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
+    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data)? editingUserName,
+    TResult Function(LoginData data)? editingAddress,
+    TResult Function(LoginData data)? sms,
+    TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
+    TResult Function(LoginData data)? success,
+    TResult Function(String message)? error,
+    TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
+    required TResult orElse(),
+  }) {
+    if (holidays != null) {
+      return holidays(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialLoginEvent value) inital,
+    required TResult Function(EditingNumberLoginState value) editingNumber,
+    required TResult Function(EditingUserNameLoginState value) editingUserName,
+    required TResult Function(EditingAddressLoginState value) editingAddress,
+    required TResult Function(SmsLoginState value) sms,
+    required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
+    required TResult Function(SuccessLoginState value) success,
+    required TResult Function(ErrorLoginState value) error,
+    required TResult Function(PermissionLocationLoginState value)
+    permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
+  }) {
+    return holidays(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialLoginEvent value)? inital,
+    TResult? Function(EditingNumberLoginState value)? editingNumber,
+    TResult? Function(EditingUserNameLoginState value)? editingUserName,
+    TResult? Function(EditingAddressLoginState value)? editingAddress,
+    TResult? Function(SmsLoginState value)? sms,
+    TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
+    TResult? Function(SuccessLoginState value)? success,
+    TResult? Function(ErrorLoginState value)? error,
+    TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
+  }) {
+    return holidays?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialLoginEvent value)? inital,
+    TResult Function(EditingNumberLoginState value)? editingNumber,
+    TResult Function(EditingUserNameLoginState value)? editingUserName,
+    TResult Function(EditingAddressLoginState value)? editingAddress,
+    TResult Function(SmsLoginState value)? sms,
+    TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
+    TResult Function(SuccessLoginState value)? success,
+    TResult Function(ErrorLoginState value)? error,
+    TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
+    required TResult orElse(),
+  }) {
+    if (holidays != null) {
+      return holidays(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HolidaysLoginState implements LoginState {
+  const factory HolidaysLoginState(final LoginData data) =
+      _$HolidaysLoginStateImpl;
+
+  LoginData get data;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HolidaysLoginStateImplCopyWith<_$HolidaysLoginStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2701,15 +3663,25 @@ class __$$SuccessLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessLoginStateImpl implements SuccessLoginState {
+class _$SuccessLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements SuccessLoginState {
   const _$SuccessLoginStateImpl(this.data);
 
   @override
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.success(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.success'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -2743,9 +3715,11 @@ class _$SuccessLoginStateImpl implements SuccessLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return success(data);
   }
@@ -2759,9 +3733,11 @@ class _$SuccessLoginStateImpl implements SuccessLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return success?.call(data);
   }
@@ -2775,9 +3751,11 @@ class _$SuccessLoginStateImpl implements SuccessLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -2795,10 +3773,12 @@ class _$SuccessLoginStateImpl implements SuccessLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return success(this);
   }
@@ -2812,9 +3792,11 @@ class _$SuccessLoginStateImpl implements SuccessLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return success?.call(this);
   }
@@ -2828,9 +3810,11 @@ class _$SuccessLoginStateImpl implements SuccessLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -2879,11 +3863,10 @@ class __$$ErrorLoginStateImplCopyWithImpl<$Res>
   $Res call({Object? message = null}) {
     return _then(
       _$ErrorLoginStateImpl(
-        message:
-            null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -2891,15 +3874,25 @@ class __$$ErrorLoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorLoginStateImpl implements ErrorLoginState {
-  const _$ErrorLoginStateImpl({required this.message});
+class _$ErrorLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements ErrorLoginState {
+  const _$ErrorLoginStateImpl(this.message);
 
   @override
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.error(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.error'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -2933,9 +3926,11 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return error(message);
   }
@@ -2949,9 +3944,11 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return error?.call(message);
   }
@@ -2965,9 +3962,11 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2985,10 +3984,12 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return error(this);
   }
@@ -3002,9 +4003,11 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return error?.call(this);
   }
@@ -3018,9 +4021,11 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -3031,8 +4036,7 @@ class _$ErrorLoginStateImpl implements ErrorLoginState {
 }
 
 abstract class ErrorLoginState implements LoginState {
-  const factory ErrorLoginState({required final String message}) =
-      _$ErrorLoginStateImpl;
+  const factory ErrorLoginState(final String message) = _$ErrorLoginStateImpl;
 
   String get message;
 
@@ -3093,6 +4097,7 @@ class __$$PermissionLocationLoginStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PermissionLocationLoginStateImpl
+    with DiagnosticableTreeMixin
     implements PermissionLocationLoginState {
   const _$PermissionLocationLoginStateImpl(this.data);
 
@@ -3100,8 +4105,16 @@ class _$PermissionLocationLoginStateImpl
   final LoginData data;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginState.permissionLocation(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.permissionLocation'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -3136,9 +4149,11 @@ class _$PermissionLocationLoginStateImpl
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
     required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
     required TResult Function(LoginData data) success,
     required TResult Function(String message) error,
     required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
   }) {
     return permissionLocation(data);
   }
@@ -3152,9 +4167,11 @@ class _$PermissionLocationLoginStateImpl
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
     TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
     TResult? Function(LoginData data)? success,
     TResult? Function(String message)? error,
     TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
   }) {
     return permissionLocation?.call(data);
   }
@@ -3168,9 +4185,11 @@ class _$PermissionLocationLoginStateImpl
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
     TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
     TResult Function(LoginData data)? success,
     TResult Function(String message)? error,
     TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (permissionLocation != null) {
@@ -3188,10 +4207,12 @@ class _$PermissionLocationLoginStateImpl
     required TResult Function(EditingAddressLoginState value) editingAddress,
     required TResult Function(SmsLoginState value) sms,
     required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
     required TResult Function(SuccessLoginState value) success,
     required TResult Function(ErrorLoginState value) error,
     required TResult Function(PermissionLocationLoginState value)
     permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
   }) {
     return permissionLocation(this);
   }
@@ -3205,9 +4226,11 @@ class _$PermissionLocationLoginStateImpl
     TResult? Function(EditingAddressLoginState value)? editingAddress,
     TResult? Function(SmsLoginState value)? sms,
     TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
     TResult? Function(SuccessLoginState value)? success,
     TResult? Function(ErrorLoginState value)? error,
     TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
   }) {
     return permissionLocation?.call(this);
   }
@@ -3221,9 +4244,11 @@ class _$PermissionLocationLoginStateImpl
     TResult Function(EditingAddressLoginState value)? editingAddress,
     TResult Function(SmsLoginState value)? sms,
     TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
     TResult Function(SuccessLoginState value)? success,
     TResult Function(ErrorLoginState value)? error,
     TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
     required TResult orElse(),
   }) {
     if (permissionLocation != null) {
@@ -3249,13 +4274,226 @@ abstract class PermissionLocationLoginState implements LoginState {
 }
 
 /// @nodoc
+abstract class _$$NavigateLoginStateImplCopyWith<$Res> {
+  factory _$$NavigateLoginStateImplCopyWith(
+    _$NavigateLoginStateImpl value,
+    $Res Function(_$NavigateLoginStateImpl) then,
+  ) = __$$NavigateLoginStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Dest dest});
+}
+
+/// @nodoc
+class __$$NavigateLoginStateImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$NavigateLoginStateImpl>
+    implements _$$NavigateLoginStateImplCopyWith<$Res> {
+  __$$NavigateLoginStateImplCopyWithImpl(
+    _$NavigateLoginStateImpl _value,
+    $Res Function(_$NavigateLoginStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? dest = null}) {
+    return _then(
+      _$NavigateLoginStateImpl(
+        null == dest
+            ? _value.dest
+            : dest // ignore: cast_nullable_to_non_nullable
+                as Dest,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$NavigateLoginStateImpl
+    with DiagnosticableTreeMixin
+    implements NavigateLoginState {
+  const _$NavigateLoginStateImpl(this.dest);
+
+  @override
+  final Dest dest;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginState.navigate(dest: $dest)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState.navigate'))
+      ..add(DiagnosticsProperty('dest', dest));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NavigateLoginStateImpl &&
+            (identical(other.dest, dest) || other.dest == dest));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dest);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NavigateLoginStateImplCopyWith<_$NavigateLoginStateImpl> get copyWith =>
+      __$$NavigateLoginStateImplCopyWithImpl<_$NavigateLoginStateImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() inital,
+    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data) editingUserName,
+    required TResult Function(LoginData data) editingAddress,
+    required TResult Function(LoginData data) sms,
+    required TResult Function() loading,
+    required TResult Function(LoginData data) holidays,
+    required TResult Function(LoginData data) success,
+    required TResult Function(String message) error,
+    required TResult Function(LoginData data) permissionLocation,
+    required TResult Function(Dest dest) navigate,
+  }) {
+    return navigate(dest);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
+    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data)? editingUserName,
+    TResult? Function(LoginData data)? editingAddress,
+    TResult? Function(LoginData data)? sms,
+    TResult? Function()? loading,
+    TResult? Function(LoginData data)? holidays,
+    TResult? Function(LoginData data)? success,
+    TResult? Function(String message)? error,
+    TResult? Function(LoginData data)? permissionLocation,
+    TResult? Function(Dest dest)? navigate,
+  }) {
+    return navigate?.call(dest);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
+    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data)? editingUserName,
+    TResult Function(LoginData data)? editingAddress,
+    TResult Function(LoginData data)? sms,
+    TResult Function()? loading,
+    TResult Function(LoginData data)? holidays,
+    TResult Function(LoginData data)? success,
+    TResult Function(String message)? error,
+    TResult Function(LoginData data)? permissionLocation,
+    TResult Function(Dest dest)? navigate,
+    required TResult orElse(),
+  }) {
+    if (navigate != null) {
+      return navigate(dest);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialLoginEvent value) inital,
+    required TResult Function(EditingNumberLoginState value) editingNumber,
+    required TResult Function(EditingUserNameLoginState value) editingUserName,
+    required TResult Function(EditingAddressLoginState value) editingAddress,
+    required TResult Function(SmsLoginState value) sms,
+    required TResult Function(LoadingLoginState value) loading,
+    required TResult Function(HolidaysLoginState value) holidays,
+    required TResult Function(SuccessLoginState value) success,
+    required TResult Function(ErrorLoginState value) error,
+    required TResult Function(PermissionLocationLoginState value)
+    permissionLocation,
+    required TResult Function(NavigateLoginState value) navigate,
+  }) {
+    return navigate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialLoginEvent value)? inital,
+    TResult? Function(EditingNumberLoginState value)? editingNumber,
+    TResult? Function(EditingUserNameLoginState value)? editingUserName,
+    TResult? Function(EditingAddressLoginState value)? editingAddress,
+    TResult? Function(SmsLoginState value)? sms,
+    TResult? Function(LoadingLoginState value)? loading,
+    TResult? Function(HolidaysLoginState value)? holidays,
+    TResult? Function(SuccessLoginState value)? success,
+    TResult? Function(ErrorLoginState value)? error,
+    TResult? Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult? Function(NavigateLoginState value)? navigate,
+  }) {
+    return navigate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialLoginEvent value)? inital,
+    TResult Function(EditingNumberLoginState value)? editingNumber,
+    TResult Function(EditingUserNameLoginState value)? editingUserName,
+    TResult Function(EditingAddressLoginState value)? editingAddress,
+    TResult Function(SmsLoginState value)? sms,
+    TResult Function(LoadingLoginState value)? loading,
+    TResult Function(HolidaysLoginState value)? holidays,
+    TResult Function(SuccessLoginState value)? success,
+    TResult Function(ErrorLoginState value)? error,
+    TResult Function(PermissionLocationLoginState value)? permissionLocation,
+    TResult Function(NavigateLoginState value)? navigate,
+    required TResult orElse(),
+  }) {
+    if (navigate != null) {
+      return navigate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavigateLoginState implements LoginState {
+  const factory NavigateLoginState(final Dest dest) = _$NavigateLoginStateImpl;
+
+  Dest get dest;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NavigateLoginStateImplCopyWith<_$NavigateLoginStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LoginData {
   String? get userName => throw _privateConstructorUsedError;
   String? get number => throw _privateConstructorUsedError;
   String? get sms => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
+  double? get long => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isHavePermission => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginData
   /// with the given fields replaced by the non-null parameter values.
@@ -3275,7 +4513,10 @@ abstract class $LoginDataCopyWith<$Res> {
     String? sms,
     String? address,
     String? error,
+    double? lat,
+    double? long,
     bool isLoading,
+    bool isHavePermission,
   });
 }
 
@@ -3299,7 +4540,10 @@ class _$LoginDataCopyWithImpl<$Res, $Val extends LoginData>
     Object? sms = freezed,
     Object? address = freezed,
     Object? error = freezed,
+    Object? lat = freezed,
+    Object? long = freezed,
     Object? isLoading = null,
+    Object? isHavePermission = null,
   }) {
     return _then(
       _value.copyWith(
@@ -3328,10 +4572,25 @@ class _$LoginDataCopyWithImpl<$Res, $Val extends LoginData>
                     ? _value.error
                     : error // ignore: cast_nullable_to_non_nullable
                         as String?,
+            lat:
+                freezed == lat
+                    ? _value.lat
+                    : lat // ignore: cast_nullable_to_non_nullable
+                        as double?,
+            long:
+                freezed == long
+                    ? _value.long
+                    : long // ignore: cast_nullable_to_non_nullable
+                        as double?,
             isLoading:
                 null == isLoading
                     ? _value.isLoading
                     : isLoading // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isHavePermission:
+                null == isHavePermission
+                    ? _value.isHavePermission
+                    : isHavePermission // ignore: cast_nullable_to_non_nullable
                         as bool,
           )
           as $Val,
@@ -3354,7 +4613,10 @@ abstract class _$$LoginDataImplCopyWith<$Res>
     String? sms,
     String? address,
     String? error,
+    double? lat,
+    double? long,
     bool isLoading,
+    bool isHavePermission,
   });
 }
 
@@ -3377,7 +4639,10 @@ class __$$LoginDataImplCopyWithImpl<$Res>
     Object? sms = freezed,
     Object? address = freezed,
     Object? error = freezed,
+    Object? lat = freezed,
+    Object? long = freezed,
     Object? isLoading = null,
+    Object? isHavePermission = null,
   }) {
     return _then(
       _$LoginDataImpl(
@@ -3406,10 +4671,25 @@ class __$$LoginDataImplCopyWithImpl<$Res>
                 ? _value.error
                 : error // ignore: cast_nullable_to_non_nullable
                     as String?,
+        lat:
+            freezed == lat
+                ? _value.lat
+                : lat // ignore: cast_nullable_to_non_nullable
+                    as double?,
+        long:
+            freezed == long
+                ? _value.long
+                : long // ignore: cast_nullable_to_non_nullable
+                    as double?,
         isLoading:
             null == isLoading
                 ? _value.isLoading
                 : isLoading // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isHavePermission:
+            null == isHavePermission
+                ? _value.isHavePermission
+                : isHavePermission // ignore: cast_nullable_to_non_nullable
                     as bool,
       ),
     );
@@ -3418,14 +4698,17 @@ class __$$LoginDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginDataImpl implements _LoginData {
+class _$LoginDataImpl with DiagnosticableTreeMixin implements _LoginData {
   const _$LoginDataImpl({
     this.userName,
     this.number,
     this.sms,
     this.address,
     this.error,
+    this.lat,
+    this.long,
     this.isLoading = false,
+    this.isHavePermission = false,
   });
 
   @override
@@ -3439,12 +4722,35 @@ class _$LoginDataImpl implements _LoginData {
   @override
   final String? error;
   @override
+  final double? lat;
+  @override
+  final double? long;
+  @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isHavePermission;
 
   @override
-  String toString() {
-    return 'LoginData(userName: $userName, number: $number, sms: $sms, address: $address, error: $error, isLoading: $isLoading)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginData(userName: $userName, number: $number, sms: $sms, address: $address, error: $error, lat: $lat, long: $long, isLoading: $isLoading, isHavePermission: $isHavePermission)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginData'))
+      ..add(DiagnosticsProperty('userName', userName))
+      ..add(DiagnosticsProperty('number', number))
+      ..add(DiagnosticsProperty('sms', sms))
+      ..add(DiagnosticsProperty('address', address))
+      ..add(DiagnosticsProperty('error', error))
+      ..add(DiagnosticsProperty('lat', lat))
+      ..add(DiagnosticsProperty('long', long))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('isHavePermission', isHavePermission));
   }
 
   @override
@@ -3458,8 +4764,12 @@ class _$LoginDataImpl implements _LoginData {
             (identical(other.sms, sms) || other.sms == sms) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.error, error) || other.error == error) &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.long, long) || other.long == long) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.isHavePermission, isHavePermission) ||
+                other.isHavePermission == isHavePermission));
   }
 
   @override
@@ -3470,7 +4780,10 @@ class _$LoginDataImpl implements _LoginData {
     sms,
     address,
     error,
+    lat,
+    long,
     isLoading,
+    isHavePermission,
   );
 
   /// Create a copy of LoginData
@@ -3489,7 +4802,10 @@ abstract class _LoginData implements LoginData {
     final String? sms,
     final String? address,
     final String? error,
+    final double? lat,
+    final double? long,
     final bool isLoading,
+    final bool isHavePermission,
   }) = _$LoginDataImpl;
 
   @override
@@ -3503,7 +4819,13 @@ abstract class _LoginData implements LoginData {
   @override
   String? get error;
   @override
+  double? get lat;
+  @override
+  double? get long;
+  @override
   bool get isLoading;
+  @override
+  bool get isHavePermission;
 
   /// Create a copy of LoginData
   /// with the given fields replaced by the non-null parameter values.

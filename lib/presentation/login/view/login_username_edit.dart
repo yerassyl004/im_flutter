@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:im_flutter/app/utils/sized_box_extension.dart';
 import 'package:im_flutter/presentation/components/button_styles.dart';
@@ -28,7 +29,9 @@ class LoginUsernameEdit extends StatelessWidget {
             33.ph,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 26.w),
-              child: EditTextField(placeholder: 'Имя'),
+              child: EditTextField(placeholder: 'Имя', onChanged: (text) {
+                context.read<LoginBloc>().add(LoginEvent.editUserName(data.copyWith(userName: text)));
+              },),
             ),
             Spacer(),
             Padding(
@@ -41,7 +44,7 @@ class LoginUsernameEdit extends StatelessWidget {
                 ),
                 onPressed: () async {
                   print('LoginData:: ${data}');
-                  // context.read<LoginBloc>().add(LoginEvent.address(data));
+                  context.read<LoginBloc>().add(LoginEvent.address(data));
                 },
                 child: Text(
                   'Проверить',
