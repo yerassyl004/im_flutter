@@ -3,6 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:im_flutter/presentation/resources/colors.dart';
 class AppTextStyle {
 
+  static TextStyle body12Regular() => TextStyle(
+     color: AppColors.black,
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w300,
+  );
+
+  static TextStyle bold12() => TextStyle(
+     color: AppColors.black,
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w600,
+  );
+
   static TextStyle body14Medium() => TextStyle(
      color: AppColors.black,
       fontSize: 14.sp,
@@ -48,6 +60,18 @@ class AppTextStyle {
   static TextStyle bold16() => TextStyle(
      color: AppColors.black,
       fontSize: 16.sp,
+      fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle body17Medium() => TextStyle(
+     color: AppColors.black,
+      fontSize: 17.sp,
+      fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle bold17() => TextStyle(
+     color: AppColors.black,
+      fontSize: 17.sp,
       fontWeight: FontWeight.w700,
   );
 

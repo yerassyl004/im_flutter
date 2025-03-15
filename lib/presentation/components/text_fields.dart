@@ -340,3 +340,32 @@ class _EditTextFieldState extends State<EditTextField> {
     );
   }
 }
+
+class SearchTextField extends StatelessWidget {
+  final ValueChanged<String>? onChanged;
+
+  const SearchTextField({super.key, this.onChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        hintText: "Search",
+        hintStyle: AppTextStyle.body16Regular().copyWith(color: AppColors.placeholder),
+        prefixIcon: Icon(Icons.search, color: AppColors.placeholder),
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.w),
+          borderSide: BorderSide(color: Colors.black, width: 0.3)
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.w),
+          borderSide: BorderSide(color: Colors.black, width: 0.3)
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+      ),
+    );
+  }
+}

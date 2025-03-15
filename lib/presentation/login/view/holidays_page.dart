@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:im_flutter/presentation/login/bloc/login_bloc.dart';
 import 'package:im_flutter/presentation/resources/colors.dart';
 
@@ -36,7 +37,7 @@ class HolidaysPage extends StatelessWidget {
             top: 40,
             right: 20,
             child: IconButton(
-              icon: Icon(Icons.close, size: 30, color: Colors.white),
+              icon: Icon(Icons.close, size: 40.w, color: AppColors.black),
               onPressed: () => context.read<LoginBloc>().add(LoginEvent.submit(data)),
             ),
           ),

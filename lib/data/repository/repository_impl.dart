@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:im_flutter/app/failure.dart';
+import 'package:im_flutter/domain/entity/food_model.dart';
 import 'package:im_flutter/domain/repository/repository.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:im_flutter/domain/usecase/get_location.dart';
@@ -51,5 +52,10 @@ class RepositoryImpl extends Repository {
     } catch (e) {
       return Left(Failure(-1, e.toString()));
     }
+  }
+
+  @override
+  Future<Either<Failure, List<FoodModel>>> getSaleFoods() async {
+    return Right(saleFoods);
   }
 }
