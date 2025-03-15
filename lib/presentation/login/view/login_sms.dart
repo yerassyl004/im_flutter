@@ -56,6 +56,7 @@ class LoginSms extends StatelessWidget {
                   backgroundColor: data.sms?.length == 4 ? AppColors.red : Color(0xFFFFFFFF).withOpacity(0.6),
                 ),
                 onPressed: () async {
+                  await Future.delayed(Duration(microseconds: 500));
                   print('LoginData:: ${data}');
                   context.read<LoginBloc>().add(LoginEvent.editUserName(data));
                 },

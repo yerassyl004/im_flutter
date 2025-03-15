@@ -30,25 +30,33 @@ class LoginPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<LoginBloc, LoginState>(
-        builder: (context, state) {
-          return state.maybeWhen(
-            editingNumber: (data) => LoginNumberEdit(),
-            editingUserName: (data) => LoginUsernameEdit(data: data),
-            editingAddress: (data) => LoginEditAddress(data: data),
-            permissionLocation: (data) => LocationPermission(),
-            holidays: (data) => HolidaysPage(data: data),
-            sms: (data) => LoginSms(data: data,),
-            success: (data) => SubmitData(data: data),
-            orElse: () => SizedBox());
+      body: WillPopScope(
+        onWillPop: () async {
+          context.read<LoginBloc>().close();
+          return true;
         },
-        listener: (context, state) {
-          if (state is NavigateLoginState) {
-            if (state.dest == Dest.Main) {
-              context.pushNamed(MainNavigation.main);
+
+        child: BlocConsumer<LoginBloc, LoginState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              editingNumber: (data) => LoginNumberEdit(),
+              editingUserName: (data) => LoginUsernameEdit(data: data),
+              editingAddress: (data) => LoginEditAddress(data: data),
+              permissionLocation: (data) => LocationPermission(),
+              holidays: (data) => HolidaysPage(data: data),
+              sms: (data) => LoginSms(data: data),
+              success: (data) => SubmitData(data: data),
+              orElse: () => SizedBox(),
+            );
+          },
+          listener: (context, state) {
+            if (state is NavigateLoginState) {
+              if (state.dest == Dest.Main) {
+                context.pushNamed(MainNavigation.main);
+              }
             }
-          }
-        },
+          },
+        ),
       ),
     );
   }

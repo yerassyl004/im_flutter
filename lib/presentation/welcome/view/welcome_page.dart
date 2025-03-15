@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:im_flutter/presentation/resources/colors.dart';
 import 'package:im_flutter/presentation/welcome/bloc/welcome.dart';
 import 'package:im_flutter/presentation/welcome/view/select_language_page.dart';
 import 'package:im_flutter/presentation/welcome/view/welcome_animation.dart';
@@ -26,10 +27,10 @@ class WelcomePageView extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<WelcomeBloc, WelcomeState>(
         builder: (context, state) => state.maybeWhen(
-          initial: () => WelcomeAnimation(),
+          animation: () => WelcomeAnimation(),
           editingLang: () => WelcomeEditingPage(isLanguagePage: true),
           editingLogin: () => WelcomeEditingPage(),
-          orElse: () => SizedBox()),
+          orElse: () => Container(color: AppColors.orange)),
       ),
     );
   }

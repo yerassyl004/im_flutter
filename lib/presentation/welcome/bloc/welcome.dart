@@ -18,7 +18,7 @@ class WelcomeEvent with _$WelcomeEvent {
 @freezed
 class WelcomeState with _$WelcomeState {
   const WelcomeState._();
-
+  const factory WelcomeState.animation() = AnimationWelcomeState;
   const factory WelcomeState.initial() = InitialWelcomeState;
   const factory WelcomeState.editingLang() = SelectLanguageWelcomeState;
   const factory WelcomeState.editingLogin() = SelectLoginWelcomeState;
@@ -31,6 +31,8 @@ class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState> {
     on<NavigateWelcomeEvent>(_navigate);
     on<SelectLanguageWelcomeEvent>(_language);
     on<SelectLoginWelcomeEvent>(_login);
+
+    add(WelcomeEvent.initial());
   }
 
   Future<void> _navigate(
@@ -41,7 +43,8 @@ class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState> {
   }
 
   Future<void> _initial(InitialWelcomeEvent event, Emitter<WelcomeState> emit) async {
-    emit(WelcomeState.initial());
+    await Future.delayed(Duration(milliseconds: 500));
+    emit(WelcomeState.animation());
   }
 
   Future<void> _language(SelectLanguageWelcomeEvent event, Emitter<WelcomeState> emit) async {

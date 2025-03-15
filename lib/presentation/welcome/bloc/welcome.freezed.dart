@@ -612,6 +612,7 @@ abstract class NavigateWelcomeEvent extends WelcomeEvent {
 mixin _$WelcomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() animation,
     required TResult Function() initial,
     required TResult Function() editingLang,
     required TResult Function() editingLogin,
@@ -619,6 +620,7 @@ mixin _$WelcomeState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? animation,
     TResult? Function()? initial,
     TResult? Function()? editingLang,
     TResult? Function()? editingLogin,
@@ -626,6 +628,7 @@ mixin _$WelcomeState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animation,
     TResult Function()? initial,
     TResult Function()? editingLang,
     TResult Function()? editingLogin,
@@ -634,6 +637,7 @@ mixin _$WelcomeState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AnimationWelcomeState value) animation,
     required TResult Function(InitialWelcomeState value) initial,
     required TResult Function(SelectLanguageWelcomeState value) editingLang,
     required TResult Function(SelectLoginWelcomeState value) editingLogin,
@@ -641,6 +645,7 @@ mixin _$WelcomeState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AnimationWelcomeState value)? animation,
     TResult? Function(InitialWelcomeState value)? initial,
     TResult? Function(SelectLanguageWelcomeState value)? editingLang,
     TResult? Function(SelectLoginWelcomeState value)? editingLogin,
@@ -648,6 +653,7 @@ mixin _$WelcomeState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AnimationWelcomeState value)? animation,
     TResult Function(InitialWelcomeState value)? initial,
     TResult Function(SelectLanguageWelcomeState value)? editingLang,
     TResult Function(SelectLoginWelcomeState value)? editingLogin,
@@ -676,6 +682,133 @@ class _$WelcomeStateCopyWithImpl<$Res, $Val extends WelcomeState>
 
   /// Create a copy of WelcomeState
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$AnimationWelcomeStateImplCopyWith<$Res> {
+  factory _$$AnimationWelcomeStateImplCopyWith(
+    _$AnimationWelcomeStateImpl value,
+    $Res Function(_$AnimationWelcomeStateImpl) then,
+  ) = __$$AnimationWelcomeStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AnimationWelcomeStateImplCopyWithImpl<$Res>
+    extends _$WelcomeStateCopyWithImpl<$Res, _$AnimationWelcomeStateImpl>
+    implements _$$AnimationWelcomeStateImplCopyWith<$Res> {
+  __$$AnimationWelcomeStateImplCopyWithImpl(
+    _$AnimationWelcomeStateImpl _value,
+    $Res Function(_$AnimationWelcomeStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of WelcomeState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AnimationWelcomeStateImpl extends AnimationWelcomeState {
+  const _$AnimationWelcomeStateImpl() : super._();
+
+  @override
+  String toString() {
+    return 'WelcomeState.animation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AnimationWelcomeStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() animation,
+    required TResult Function() initial,
+    required TResult Function() editingLang,
+    required TResult Function() editingLogin,
+    required TResult Function(Dest dest) navigate,
+  }) {
+    return animation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? animation,
+    TResult? Function()? initial,
+    TResult? Function()? editingLang,
+    TResult? Function()? editingLogin,
+    TResult? Function(Dest dest)? navigate,
+  }) {
+    return animation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animation,
+    TResult Function()? initial,
+    TResult Function()? editingLang,
+    TResult Function()? editingLogin,
+    TResult Function(Dest dest)? navigate,
+    required TResult orElse(),
+  }) {
+    if (animation != null) {
+      return animation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AnimationWelcomeState value) animation,
+    required TResult Function(InitialWelcomeState value) initial,
+    required TResult Function(SelectLanguageWelcomeState value) editingLang,
+    required TResult Function(SelectLoginWelcomeState value) editingLogin,
+    required TResult Function(NavigateWelcomeState value) navigate,
+  }) {
+    return animation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AnimationWelcomeState value)? animation,
+    TResult? Function(InitialWelcomeState value)? initial,
+    TResult? Function(SelectLanguageWelcomeState value)? editingLang,
+    TResult? Function(SelectLoginWelcomeState value)? editingLogin,
+    TResult? Function(NavigateWelcomeState value)? navigate,
+  }) {
+    return animation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AnimationWelcomeState value)? animation,
+    TResult Function(InitialWelcomeState value)? initial,
+    TResult Function(SelectLanguageWelcomeState value)? editingLang,
+    TResult Function(SelectLoginWelcomeState value)? editingLogin,
+    TResult Function(NavigateWelcomeState value)? navigate,
+    required TResult orElse(),
+  }) {
+    if (animation != null) {
+      return animation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AnimationWelcomeState extends WelcomeState {
+  const factory AnimationWelcomeState() = _$AnimationWelcomeStateImpl;
+  const AnimationWelcomeState._() : super._();
 }
 
 /// @nodoc
@@ -722,6 +855,7 @@ class _$InitialWelcomeStateImpl extends InitialWelcomeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() animation,
     required TResult Function() initial,
     required TResult Function() editingLang,
     required TResult Function() editingLogin,
@@ -733,6 +867,7 @@ class _$InitialWelcomeStateImpl extends InitialWelcomeState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? animation,
     TResult? Function()? initial,
     TResult? Function()? editingLang,
     TResult? Function()? editingLogin,
@@ -744,6 +879,7 @@ class _$InitialWelcomeStateImpl extends InitialWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animation,
     TResult Function()? initial,
     TResult Function()? editingLang,
     TResult Function()? editingLogin,
@@ -759,6 +895,7 @@ class _$InitialWelcomeStateImpl extends InitialWelcomeState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AnimationWelcomeState value) animation,
     required TResult Function(InitialWelcomeState value) initial,
     required TResult Function(SelectLanguageWelcomeState value) editingLang,
     required TResult Function(SelectLoginWelcomeState value) editingLogin,
@@ -770,6 +907,7 @@ class _$InitialWelcomeStateImpl extends InitialWelcomeState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AnimationWelcomeState value)? animation,
     TResult? Function(InitialWelcomeState value)? initial,
     TResult? Function(SelectLanguageWelcomeState value)? editingLang,
     TResult? Function(SelectLoginWelcomeState value)? editingLogin,
@@ -781,6 +919,7 @@ class _$InitialWelcomeStateImpl extends InitialWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AnimationWelcomeState value)? animation,
     TResult Function(InitialWelcomeState value)? initial,
     TResult Function(SelectLanguageWelcomeState value)? editingLang,
     TResult Function(SelectLoginWelcomeState value)? editingLogin,
@@ -843,6 +982,7 @@ class _$SelectLanguageWelcomeStateImpl extends SelectLanguageWelcomeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() animation,
     required TResult Function() initial,
     required TResult Function() editingLang,
     required TResult Function() editingLogin,
@@ -854,6 +994,7 @@ class _$SelectLanguageWelcomeStateImpl extends SelectLanguageWelcomeState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? animation,
     TResult? Function()? initial,
     TResult? Function()? editingLang,
     TResult? Function()? editingLogin,
@@ -865,6 +1006,7 @@ class _$SelectLanguageWelcomeStateImpl extends SelectLanguageWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animation,
     TResult Function()? initial,
     TResult Function()? editingLang,
     TResult Function()? editingLogin,
@@ -880,6 +1022,7 @@ class _$SelectLanguageWelcomeStateImpl extends SelectLanguageWelcomeState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AnimationWelcomeState value) animation,
     required TResult Function(InitialWelcomeState value) initial,
     required TResult Function(SelectLanguageWelcomeState value) editingLang,
     required TResult Function(SelectLoginWelcomeState value) editingLogin,
@@ -891,6 +1034,7 @@ class _$SelectLanguageWelcomeStateImpl extends SelectLanguageWelcomeState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AnimationWelcomeState value)? animation,
     TResult? Function(InitialWelcomeState value)? initial,
     TResult? Function(SelectLanguageWelcomeState value)? editingLang,
     TResult? Function(SelectLoginWelcomeState value)? editingLogin,
@@ -902,6 +1046,7 @@ class _$SelectLanguageWelcomeStateImpl extends SelectLanguageWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AnimationWelcomeState value)? animation,
     TResult Function(InitialWelcomeState value)? initial,
     TResult Function(SelectLanguageWelcomeState value)? editingLang,
     TResult Function(SelectLoginWelcomeState value)? editingLogin,
@@ -964,6 +1109,7 @@ class _$SelectLoginWelcomeStateImpl extends SelectLoginWelcomeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() animation,
     required TResult Function() initial,
     required TResult Function() editingLang,
     required TResult Function() editingLogin,
@@ -975,6 +1121,7 @@ class _$SelectLoginWelcomeStateImpl extends SelectLoginWelcomeState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? animation,
     TResult? Function()? initial,
     TResult? Function()? editingLang,
     TResult? Function()? editingLogin,
@@ -986,6 +1133,7 @@ class _$SelectLoginWelcomeStateImpl extends SelectLoginWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animation,
     TResult Function()? initial,
     TResult Function()? editingLang,
     TResult Function()? editingLogin,
@@ -1001,6 +1149,7 @@ class _$SelectLoginWelcomeStateImpl extends SelectLoginWelcomeState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AnimationWelcomeState value) animation,
     required TResult Function(InitialWelcomeState value) initial,
     required TResult Function(SelectLanguageWelcomeState value) editingLang,
     required TResult Function(SelectLoginWelcomeState value) editingLogin,
@@ -1012,6 +1161,7 @@ class _$SelectLoginWelcomeStateImpl extends SelectLoginWelcomeState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AnimationWelcomeState value)? animation,
     TResult? Function(InitialWelcomeState value)? initial,
     TResult? Function(SelectLanguageWelcomeState value)? editingLang,
     TResult? Function(SelectLoginWelcomeState value)? editingLogin,
@@ -1023,6 +1173,7 @@ class _$SelectLoginWelcomeStateImpl extends SelectLoginWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AnimationWelcomeState value)? animation,
     TResult Function(InitialWelcomeState value)? initial,
     TResult Function(SelectLanguageWelcomeState value)? editingLang,
     TResult Function(SelectLoginWelcomeState value)? editingLogin,
@@ -1115,6 +1266,7 @@ class _$NavigateWelcomeStateImpl extends NavigateWelcomeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() animation,
     required TResult Function() initial,
     required TResult Function() editingLang,
     required TResult Function() editingLogin,
@@ -1126,6 +1278,7 @@ class _$NavigateWelcomeStateImpl extends NavigateWelcomeState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? animation,
     TResult? Function()? initial,
     TResult? Function()? editingLang,
     TResult? Function()? editingLogin,
@@ -1137,6 +1290,7 @@ class _$NavigateWelcomeStateImpl extends NavigateWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? animation,
     TResult Function()? initial,
     TResult Function()? editingLang,
     TResult Function()? editingLogin,
@@ -1152,6 +1306,7 @@ class _$NavigateWelcomeStateImpl extends NavigateWelcomeState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(AnimationWelcomeState value) animation,
     required TResult Function(InitialWelcomeState value) initial,
     required TResult Function(SelectLanguageWelcomeState value) editingLang,
     required TResult Function(SelectLoginWelcomeState value) editingLogin,
@@ -1163,6 +1318,7 @@ class _$NavigateWelcomeStateImpl extends NavigateWelcomeState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AnimationWelcomeState value)? animation,
     TResult? Function(InitialWelcomeState value)? initial,
     TResult? Function(SelectLanguageWelcomeState value)? editingLang,
     TResult? Function(SelectLoginWelcomeState value)? editingLogin,
@@ -1174,6 +1330,7 @@ class _$NavigateWelcomeStateImpl extends NavigateWelcomeState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(AnimationWelcomeState value)? animation,
     TResult Function(InitialWelcomeState value)? initial,
     TResult Function(SelectLanguageWelcomeState value)? editingLang,
     TResult Function(SelectLoginWelcomeState value)? editingLogin,

@@ -100,6 +100,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future<void> _sms(SmsLoginEvent event, Emitter<LoginState> emit) async {
+    await Future.delayed(Duration(milliseconds: 500));
     emit(LoginState.sms(event.data));
   }
 

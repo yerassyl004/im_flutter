@@ -44,7 +44,9 @@ class LoginUsernameEdit extends StatelessWidget {
                 ),
                 onPressed: () async {
                   print('LoginData:: ${data}');
+                  if (data.userName != '' && data.userName != null) {
                   context.read<LoginBloc>().add(LoginEvent.address(data));
+                  }
                 },
                 child: Text(
                   'Проверить',

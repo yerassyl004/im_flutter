@@ -3,11 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:im_flutter/presentation/app/view/app_view.dart';
 import 'package:im_flutter/presentation/login/login_page.dart';
 import 'package:im_flutter/presentation/main/view/main.dart';
+import 'package:im_flutter/presentation/profile/profile_page.dart';
 
 class MainNavigation {
   static const String app = '/';
   static const String main = '/main';
   static const String login = '/login';
+  static const String profile = '/main/profile';
 
   final RouteObserver<ModalRoute> routeObserver;
   final GoRouter globalRouter;
@@ -45,6 +47,11 @@ class MainNavigation {
           name: main,
           path: main,
           builder: (context, state) => MainView(),
+        ),
+         GoRoute(
+          name: profile,
+          path: profile,
+          builder: (context, state) => ProfilePage(),
         ),
       ],
     );

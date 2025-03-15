@@ -33,7 +33,8 @@ class _WelcomeAnimationState extends State<WelcomeAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    // default width from figma
+    double screenWidth = 393;
     double centerX = screenWidth / 2 - 133.w;
 
     return Scaffold(
