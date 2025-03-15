@@ -9,10 +9,7 @@ import 'package:im_flutter/domain/usecase/get_location.dart';
 
 part 'login_bloc.freezed.dart';
 
-enum Dest {
-  Main,
-  Welcome
-}
+enum Dest { Main, Welcome }
 
 @freezed
 class LoginEvent with _$LoginEvent {
@@ -107,11 +104,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(LoginState.sms(event.data));
   }
 
-  Future<void> _navigate(NavigateLoginEvent event, Emitter<LoginState> emit) async {
+  Future<void> _navigate(
+    NavigateLoginEvent event,
+    Emitter<LoginState> emit,
+  ) async {
     emit(LoginState.navigate(event.dest));
   }
 
-  Future<void> _holiday(HolidayLoginEvent event, Emitter<LoginState> emit) async {
+  Future<void> _holiday(
+    HolidayLoginEvent event,
+    Emitter<LoginState> emit,
+  ) async {
     emit(LoginState.holidays(event.data));
   }
 
@@ -123,44 +126,61 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future<void> _editAddress(
-  UserNameLoginEvent event,
-  Emitter<LoginState> emit,
-) async {
-  emit(LoginState.permissionLocation(event.data));
+    UserNameLoginEvent event,
+    Emitter<LoginState> emit,
+  ) async {
+    emit(LoginState.permissionLocation(event.data));
 
-  final result = await checkLocationPermissionUseCase.execute(null);
+    final result = await checkLocationPermissionUseCase.execute(null);
 
-  await result.fold(
-    (failure) async {
-      emit(LoginState.permissionLocation(
-        event.data.copyWith(isHavePermission: false),
-      ));
-    },
-    (hasPermission) async {
-      if (hasPermission) {
-        final locationResult = await getLocation.execute(null);
-
-        await locationResult.fold(
-          (failure) async {
-            emit(LoginState.error(failure.message));
-          },
-          (location) async {
-            emit(LoginState.editingAddress(event.data.copyWith(
-              isHavePermission: true,
-              lat: location.lat,
-              long: location.long,
-            )));
-          },
+    await result.fold(
+      (failure) async {
+        emit(
+          LoginState.permissionLocation(
+            event.data.copyWith(isHavePermission: false),
+          ),
         );
-      } else {
-        emit(LoginState.permissionLocation(
-          event.data.copyWith(isHavePermission: false),
-        ));
-      }
-    },
-  );
-  emit(LoginState.permissionLocation(
-          event.data.copyWith(isHavePermission: false),
-        ));
-}
+      },
+      (hasPermission) async {
+        if (hasPermission) {
+          final locationResult = await getLocation.execute(null);
+
+          await locationResult.fold(
+            (failure) async {
+              emit(
+                LoginState.editingAddress(
+                  event.data.copyWith(isHavePermission: false),
+                ),
+              );
+            },
+            (location) async {
+              emit(
+                LoginState.editingAddress(
+                  event.data.copyWith(
+                    isHavePermission: true,
+                    lat: location.lat,
+                    long: location.long,
+                  ),
+                ),
+              );
+            },
+          );
+          emit(
+            LoginState.editingAddress(
+              event.data.copyWith(isHavePermission: false),
+            ),
+          );
+        } else {
+          emit(
+            LoginState.editingAddress(
+              event.data.copyWith(isHavePermission: false),
+            ),
+          );
+        }
+      },
+    );
+    emit(
+      LoginState.editingAddress(event.data.copyWith(isHavePermission: false)),
+    );
+  }
 }
