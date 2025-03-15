@@ -1,16 +1,10 @@
 # im_flutter
 
-A new Flutter project.
+Архитектура: Clean Architecture
+Навигация: GoRouter
+State Management: Bloc with freezed
 
-## Getting Started
+Использована Bloc для управление состояние приложение. Глваный AppBloc может перемещать между Онбординг, Логин и Главными экранами. Когда приложение запуститься оно определяеть куда отправлять пользователя(Welcome, MainPage). 
+А также есть MainBloc для управление между 4 табами и перемещатся между собой.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="505" alt="Screenshot 2025-03-15 at 19 28 26" src="https://github.com/user-attachments/assets/106981ae-b44a-4738-9239-68a426a8ded0" />
