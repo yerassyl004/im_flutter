@@ -24,6 +24,7 @@ class _AppViewState extends State<AppView> {
       body: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) => state.maybeWhen(
           welcome: () => WelcomePage(),
+          login: () => MainView(),
           main: () => MainView(),
           orElse: () => SizedBox()
         ),

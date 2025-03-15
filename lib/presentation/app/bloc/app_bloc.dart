@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:im_flutter/app/constants.dart';
+import 'package:im_flutter/app/utils/session.dart';
 
 part 'app_bloc.freezed.dart';
 
@@ -27,10 +29,17 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<LoginAppEvent>(_login);
     on<ErrorAppEvent>(_error);
     on<LoadingAppEvent>(_loading);
+
+    // add(AppEvent.init());
   }
 
   Future<void> _init(InitAppEvent event, Emitter<AppState> emit) async {
-    emit(const AppState.welcome());
+    final login = await Cache.getBool(loginKey);
+    if (login) {
+      emit(const AppState.login());
+    } else {
+      emit(const AppState.welcome());
+    }
   }
 
   Future<void> _login(LoginAppEvent event, Emitter<AppState> emit) async {

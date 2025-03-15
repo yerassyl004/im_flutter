@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:im_flutter/app/constants.dart';
+import 'package:im_flutter/app/utils/session.dart';
 import 'package:im_flutter/domain/usecase/check_location_permission.dart';
 import 'package:im_flutter/domain/usecase/get_location.dart';
 
@@ -85,6 +87,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Future<void> _submit(SubmitLoginEvent event, Emitter<LoginState> emit) async {
     emit(SuccessLoginState(event.data));
     await Future.delayed(Duration(seconds: 2));
+    Cache.saveBool(loginKey, true);
     emit(LoginState.navigate(Dest.Main));
   }
 
@@ -156,5 +159,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       }
     },
   );
+  emit(LoginState.permissionLocation(
+          event.data.copyWith(isHavePermission: false),
+        ));
 }
 }
