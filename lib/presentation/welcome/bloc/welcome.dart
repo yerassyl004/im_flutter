@@ -9,7 +9,7 @@ enum Dest { Login, Registration }
 class WelcomeEvent with _$WelcomeEvent {
   const WelcomeEvent._();
 
-  const factory WelcomeEvent.initial() = InitialWelcomeEvent;
+  const factory WelcomeEvent.initial(bool showedLaunchAnimation) = InitialWelcomeEvent;
   const factory WelcomeEvent.selectLanguage() = SelectLanguageWelcomeEvent;
   const factory WelcomeEvent.selectLogin() = SelectLoginWelcomeEvent;
   const factory WelcomeEvent.navigate(Dest dest) = NavigateWelcomeEvent;
@@ -26,13 +26,11 @@ class WelcomeState with _$WelcomeState {
 }
 
 class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState> {
-  WelcomeBloc() : super(const InitialWelcomeState()) {
+  WelcomeBloc() : super(InitialWelcomeState()) {
     on<InitialWelcomeEvent>(_initial);
     on<NavigateWelcomeEvent>(_navigate);
     on<SelectLanguageWelcomeEvent>(_language);
     on<SelectLoginWelcomeEvent>(_login);
-
-    add(WelcomeEvent.initial());
   }
 
   Future<void> _navigate(
@@ -40,11 +38,17 @@ class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState> {
     Emitter<WelcomeState> emit,
   ) async {
     emit(WelcomeState.navigate(event.dest));
+    await Future.delayed(Duration(milliseconds: 500));
+    emit(WelcomeState.editingLogin());
   }
 
   Future<void> _initial(InitialWelcomeEvent event, Emitter<WelcomeState> emit) async {
     await Future.delayed(Duration(milliseconds: 500));
-    emit(WelcomeState.animation());
+    if (event.showedLaunchAnimation) {
+      emit(WelcomeState.animation());
+    } else {
+      emit(WelcomeState.editingLogin());
+    }
   }
 
   Future<void> _language(SelectLanguageWelcomeEvent event, Emitter<WelcomeState> emit) async {

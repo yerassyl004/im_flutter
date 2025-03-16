@@ -19,21 +19,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WelcomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(bool showedLaunchAnimation) initial,
     required TResult Function() selectLanguage,
     required TResult Function() selectLogin,
     required TResult Function(Dest dest) navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(bool showedLaunchAnimation)? initial,
     TResult? Function()? selectLanguage,
     TResult? Function()? selectLogin,
     TResult? Function(Dest dest)? navigate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(bool showedLaunchAnimation)? initial,
     TResult Function()? selectLanguage,
     TResult Function()? selectLogin,
     TResult Function(Dest dest)? navigate,
@@ -91,6 +91,8 @@ abstract class _$$InitialWelcomeEventImplCopyWith<$Res> {
     _$InitialWelcomeEventImpl value,
     $Res Function(_$InitialWelcomeEventImpl) then,
   ) = __$$InitialWelcomeEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool showedLaunchAnimation});
 }
 
 /// @nodoc
@@ -104,61 +106,89 @@ class __$$InitialWelcomeEventImplCopyWithImpl<$Res>
 
   /// Create a copy of WelcomeEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? showedLaunchAnimation = null}) {
+    return _then(
+      _$InitialWelcomeEventImpl(
+        null == showedLaunchAnimation
+            ? _value.showedLaunchAnimation
+            : showedLaunchAnimation // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
 class _$InitialWelcomeEventImpl extends InitialWelcomeEvent {
-  const _$InitialWelcomeEventImpl() : super._();
+  const _$InitialWelcomeEventImpl(this.showedLaunchAnimation) : super._();
+
+  @override
+  final bool showedLaunchAnimation;
 
   @override
   String toString() {
-    return 'WelcomeEvent.initial()';
+    return 'WelcomeEvent.initial(showedLaunchAnimation: $showedLaunchAnimation)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InitialWelcomeEventImpl);
+            other is _$InitialWelcomeEventImpl &&
+            (identical(other.showedLaunchAnimation, showedLaunchAnimation) ||
+                other.showedLaunchAnimation == showedLaunchAnimation));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, showedLaunchAnimation);
+
+  /// Create a copy of WelcomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitialWelcomeEventImplCopyWith<_$InitialWelcomeEventImpl> get copyWith =>
+      __$$InitialWelcomeEventImplCopyWithImpl<_$InitialWelcomeEventImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(bool showedLaunchAnimation) initial,
     required TResult Function() selectLanguage,
     required TResult Function() selectLogin,
     required TResult Function(Dest dest) navigate,
   }) {
-    return initial();
+    return initial(showedLaunchAnimation);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(bool showedLaunchAnimation)? initial,
     TResult? Function()? selectLanguage,
     TResult? Function()? selectLogin,
     TResult? Function(Dest dest)? navigate,
   }) {
-    return initial?.call();
+    return initial?.call(showedLaunchAnimation);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(bool showedLaunchAnimation)? initial,
     TResult Function()? selectLanguage,
     TResult Function()? selectLogin,
     TResult Function(Dest dest)? navigate,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(showedLaunchAnimation);
     }
     return orElse();
   }
@@ -202,8 +232,17 @@ class _$InitialWelcomeEventImpl extends InitialWelcomeEvent {
 }
 
 abstract class InitialWelcomeEvent extends WelcomeEvent {
-  const factory InitialWelcomeEvent() = _$InitialWelcomeEventImpl;
+  const factory InitialWelcomeEvent(final bool showedLaunchAnimation) =
+      _$InitialWelcomeEventImpl;
   const InitialWelcomeEvent._() : super._();
+
+  bool get showedLaunchAnimation;
+
+  /// Create a copy of WelcomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitialWelcomeEventImplCopyWith<_$InitialWelcomeEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -250,7 +289,7 @@ class _$SelectLanguageWelcomeEventImpl extends SelectLanguageWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(bool showedLaunchAnimation) initial,
     required TResult Function() selectLanguage,
     required TResult Function() selectLogin,
     required TResult Function(Dest dest) navigate,
@@ -261,7 +300,7 @@ class _$SelectLanguageWelcomeEventImpl extends SelectLanguageWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(bool showedLaunchAnimation)? initial,
     TResult? Function()? selectLanguage,
     TResult? Function()? selectLogin,
     TResult? Function(Dest dest)? navigate,
@@ -272,7 +311,7 @@ class _$SelectLanguageWelcomeEventImpl extends SelectLanguageWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(bool showedLaunchAnimation)? initial,
     TResult Function()? selectLanguage,
     TResult Function()? selectLogin,
     TResult Function(Dest dest)? navigate,
@@ -371,7 +410,7 @@ class _$SelectLoginWelcomeEventImpl extends SelectLoginWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(bool showedLaunchAnimation) initial,
     required TResult Function() selectLanguage,
     required TResult Function() selectLogin,
     required TResult Function(Dest dest) navigate,
@@ -382,7 +421,7 @@ class _$SelectLoginWelcomeEventImpl extends SelectLoginWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(bool showedLaunchAnimation)? initial,
     TResult? Function()? selectLanguage,
     TResult? Function()? selectLogin,
     TResult? Function(Dest dest)? navigate,
@@ -393,7 +432,7 @@ class _$SelectLoginWelcomeEventImpl extends SelectLoginWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(bool showedLaunchAnimation)? initial,
     TResult Function()? selectLanguage,
     TResult Function()? selectLogin,
     TResult Function(Dest dest)? navigate,
@@ -522,7 +561,7 @@ class _$NavigateWelcomeEventImpl extends NavigateWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(bool showedLaunchAnimation) initial,
     required TResult Function() selectLanguage,
     required TResult Function() selectLogin,
     required TResult Function(Dest dest) navigate,
@@ -533,7 +572,7 @@ class _$NavigateWelcomeEventImpl extends NavigateWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(bool showedLaunchAnimation)? initial,
     TResult? Function()? selectLanguage,
     TResult? Function()? selectLogin,
     TResult? Function(Dest dest)? navigate,
@@ -544,7 +583,7 @@ class _$NavigateWelcomeEventImpl extends NavigateWelcomeEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(bool showedLaunchAnimation)? initial,
     TResult Function()? selectLanguage,
     TResult Function()? selectLogin,
     TResult Function(Dest dest)? navigate,

@@ -7,6 +7,7 @@ import 'package:im_flutter/domain/usecase/check_location_permission.dart';
 import 'package:im_flutter/domain/usecase/get_location.dart';
 import 'package:im_flutter/domain/usecase/load_sale_food.dart';
 import 'package:im_flutter/presentation/app/bloc/app_bloc.dart';
+import 'package:im_flutter/presentation/food_details/bloc/food.dart';
 import 'package:im_flutter/presentation/home/bloc/home.dart';
 import 'package:im_flutter/presentation/login/bloc/login_bloc.dart';
 import 'package:im_flutter/presentation/main/bloc/main_bloc.dart';
@@ -32,6 +33,7 @@ class DI {
     getIt.registerLazySingleton<HomeBloc>(() => HomeBloc(getIt()));
     getIt.registerLazySingleton<WelcomeBloc>(() => WelcomeBloc());
     getIt.registerLazySingleton<LoginBloc>(() => LoginBloc(getIt(), getIt()));
+    getIt.registerLazySingleton<FoodsBloc>(() => FoodsBloc());
 
     getIt.registerFactory<CheckLocationPermissionUseCase>(() => CheckLocationPermissionUseCase(getIt()));
     getIt.registerFactory<GetLocation>(() => GetLocation(getIt()));

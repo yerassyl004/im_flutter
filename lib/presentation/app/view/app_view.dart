@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:im_flutter/presentation/app/bloc/app_bloc.dart';
+import 'package:im_flutter/presentation/launch_animation/launch_animation.dart';
+import 'package:im_flutter/presentation/login/login_page.dart';
 import 'package:im_flutter/presentation/main/view/main.dart';
 import 'package:im_flutter/presentation/welcome/view/welcome_page.dart';
 
@@ -15,7 +17,7 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    context.read<AppBloc>().add(AppEvent.init());
+    context.read<AppBloc>().add(AppEvent.animation());
   }
 
   @override
@@ -23,9 +25,10 @@ class _AppViewState extends State<AppView> {
     return Scaffold(
       body: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) => state.maybeWhen(
-          welcome: () => WelcomePage(),
-          login: () => MainView(),
+          welcome: (showLaunchAnimation) => WelcomePage(showLaunchAnimation: showLaunchAnimation),
+          login: () => LoginPage(),
           main: () => MainView(),
+          launchAnimation: () => WelcomeAnimation(),
           orElse: () => SizedBox()
         ),
       ),

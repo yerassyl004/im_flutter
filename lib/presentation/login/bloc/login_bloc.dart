@@ -15,7 +15,7 @@ enum Dest { Main, Welcome }
 class LoginEvent with _$LoginEvent {
   const factory LoginEvent.init() = InitLoginEvent;
   const factory LoginEvent.submit(LoginData data) = SubmitLoginEvent;
-  const factory LoginEvent.editNumber() = EditNumberLoginEvent;
+  const factory LoginEvent.editNumber(LoginData data, [@Default(false) isEditing]) = EditNumberLoginEvent;
   const factory LoginEvent.sms(LoginData data) = SmsLoginEvent;
   const factory LoginEvent.editUserName(LoginData data) =
       EditUserNameLoginEvent;
@@ -29,7 +29,7 @@ class LoginEvent with _$LoginEvent {
 @freezed
 class LoginState with _$LoginState {
   const factory LoginState.inital() = InitialLoginEvent;
-  const factory LoginState.editingNumber(LoginData data) =
+  const factory LoginState.editingNumber(LoginData data, [@Default(false) isEditing]) =
       EditingNumberLoginState;
   const factory LoginState.editingUserName(LoginData data) =
       EditingUserNameLoginState;
@@ -65,7 +65,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final GetLocation getLocation;
 
   LoginBloc(this.checkLocationPermissionUseCase, this.getLocation)
-    : super(const LoginState.editingNumber(LoginData())) {
+    : super(const LoginState.inital()) {
     on<InitLoginEvent>(_init);
     on<SubmitLoginEvent>(_submit);
     on<ErrorLoginEvent>(_error);
@@ -75,10 +75,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<UserNameLoginEvent>(_editAddress);
     on<HolidayLoginEvent>(_holiday);
     on<NavigateLoginEvent>(_navigate);
+    on<EditNumberLoginEvent>(_editNumberName);
   }
 
   Future<void> _init(InitLoginEvent event, Emitter<LoginState> emit) async {
-    emit(const LoginState.editingNumber(LoginData()));
+    emit(LoginState.editingNumber(LoginData()));
   }
 
   Future<void> _submit(SubmitLoginEvent event, Emitter<LoginState> emit) async {
@@ -116,6 +117,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) async {
     emit(LoginState.holidays(event.data));
+  }
+
+  Future<void> _editNumberName(
+    EditNumberLoginEvent event,
+    Emitter<LoginState> emit,
+  ) async {
+    print('EditNumberLoginEvent');
+    if (event.data.number?.length == 10) {
+      await Future.delayed(Duration(milliseconds: 500));
+      emit(LoginState.sms(event.data));
+    } else {
+      await Future.delayed(Duration(milliseconds: 10));
+      emit(LoginState.editingNumber(event.data, event.isEditing));
+    }
   }
 
   Future<void> _editUserName(

@@ -21,44 +21,62 @@ mixin _$AppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() login,
+    required TResult Function() logOut,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? login,
+    TResult? Function()? logOut,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? login,
+    TResult Function()? logOut,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InitAppEvent value) init,
     required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
     required TResult Function(ErrorAppEvent value) error,
     required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitAppEvent value)? init,
     TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
     TResult? Function(ErrorAppEvent value)? error,
     TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitAppEvent value)? init,
     TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
     TResult Function(ErrorAppEvent value)? error,
     TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -128,8 +146,11 @@ class _$InitAppEventImpl implements InitAppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() login,
+    required TResult Function() logOut,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
   }) {
     return init();
   }
@@ -139,8 +160,11 @@ class _$InitAppEventImpl implements InitAppEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? login,
+    TResult? Function()? logOut,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
   }) {
     return init?.call();
   }
@@ -150,8 +174,11 @@ class _$InitAppEventImpl implements InitAppEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? login,
+    TResult Function()? logOut,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -165,8 +192,11 @@ class _$InitAppEventImpl implements InitAppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitAppEvent value) init,
     required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
     required TResult Function(ErrorAppEvent value) error,
     required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
   }) {
     return init(this);
   }
@@ -176,8 +206,11 @@ class _$InitAppEventImpl implements InitAppEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitAppEvent value)? init,
     TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
     TResult? Function(ErrorAppEvent value)? error,
     TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
   }) {
     return init?.call(this);
   }
@@ -187,8 +220,11 @@ class _$InitAppEventImpl implements InitAppEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitAppEvent value)? init,
     TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
     TResult Function(ErrorAppEvent value)? error,
     TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -247,8 +283,11 @@ class _$LoginAppEventImpl implements LoginAppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() login,
+    required TResult Function() logOut,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
   }) {
     return login();
   }
@@ -258,8 +297,11 @@ class _$LoginAppEventImpl implements LoginAppEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? login,
+    TResult? Function()? logOut,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
   }) {
     return login?.call();
   }
@@ -269,8 +311,11 @@ class _$LoginAppEventImpl implements LoginAppEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? login,
+    TResult Function()? logOut,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -284,8 +329,11 @@ class _$LoginAppEventImpl implements LoginAppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitAppEvent value) init,
     required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
     required TResult Function(ErrorAppEvent value) error,
     required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
   }) {
     return login(this);
   }
@@ -295,8 +343,11 @@ class _$LoginAppEventImpl implements LoginAppEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitAppEvent value)? init,
     TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
     TResult? Function(ErrorAppEvent value)? error,
     TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
   }) {
     return login?.call(this);
   }
@@ -306,8 +357,11 @@ class _$LoginAppEventImpl implements LoginAppEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitAppEvent value)? init,
     TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
     TResult Function(ErrorAppEvent value)? error,
     TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -319,6 +373,143 @@ class _$LoginAppEventImpl implements LoginAppEvent {
 
 abstract class LoginAppEvent implements AppEvent {
   const factory LoginAppEvent() = _$LoginAppEventImpl;
+}
+
+/// @nodoc
+abstract class _$$LogOutAppEventImplCopyWith<$Res> {
+  factory _$$LogOutAppEventImplCopyWith(
+    _$LogOutAppEventImpl value,
+    $Res Function(_$LogOutAppEventImpl) then,
+  ) = __$$LogOutAppEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogOutAppEventImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$LogOutAppEventImpl>
+    implements _$$LogOutAppEventImplCopyWith<$Res> {
+  __$$LogOutAppEventImplCopyWithImpl(
+    _$LogOutAppEventImpl _value,
+    $Res Function(_$LogOutAppEventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LogOutAppEventImpl implements LogOutAppEvent {
+  const _$LogOutAppEventImpl();
+
+  @override
+  String toString() {
+    return 'AppEvent.logOut()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogOutAppEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() login,
+    required TResult Function() logOut,
+    required TResult Function() error,
+    required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
+  }) {
+    return logOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? login,
+    TResult? Function()? logOut,
+    TResult? Function()? error,
+    TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
+  }) {
+    return logOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? login,
+    TResult Function()? logOut,
+    TResult Function()? error,
+    TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitAppEvent value) init,
+    required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
+    required TResult Function(ErrorAppEvent value) error,
+    required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
+  }) {
+    return logOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitAppEvent value)? init,
+    TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
+    TResult? Function(ErrorAppEvent value)? error,
+    TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
+  }) {
+    return logOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitAppEvent value)? init,
+    TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
+    TResult Function(ErrorAppEvent value)? error,
+    TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LogOutAppEvent implements AppEvent {
+  const factory LogOutAppEvent() = _$LogOutAppEventImpl;
 }
 
 /// @nodoc
@@ -366,8 +557,11 @@ class _$ErrorAppEventImpl implements ErrorAppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() login,
+    required TResult Function() logOut,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
   }) {
     return error();
   }
@@ -377,8 +571,11 @@ class _$ErrorAppEventImpl implements ErrorAppEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? login,
+    TResult? Function()? logOut,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
   }) {
     return error?.call();
   }
@@ -388,8 +585,11 @@ class _$ErrorAppEventImpl implements ErrorAppEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? login,
+    TResult Function()? logOut,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -403,8 +603,11 @@ class _$ErrorAppEventImpl implements ErrorAppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitAppEvent value) init,
     required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
     required TResult Function(ErrorAppEvent value) error,
     required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
   }) {
     return error(this);
   }
@@ -414,8 +617,11 @@ class _$ErrorAppEventImpl implements ErrorAppEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitAppEvent value)? init,
     TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
     TResult? Function(ErrorAppEvent value)? error,
     TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
   }) {
     return error?.call(this);
   }
@@ -425,8 +631,11 @@ class _$ErrorAppEventImpl implements ErrorAppEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitAppEvent value)? init,
     TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
     TResult Function(ErrorAppEvent value)? error,
     TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -485,8 +694,11 @@ class _$LoadingAppEventImpl implements LoadingAppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() login,
+    required TResult Function() logOut,
     required TResult Function() error,
     required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
   }) {
     return loading();
   }
@@ -496,8 +708,11 @@ class _$LoadingAppEventImpl implements LoadingAppEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? login,
+    TResult? Function()? logOut,
     TResult? Function()? error,
     TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
   }) {
     return loading?.call();
   }
@@ -507,8 +722,11 @@ class _$LoadingAppEventImpl implements LoadingAppEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? login,
+    TResult Function()? logOut,
     TResult Function()? error,
     TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -522,8 +740,11 @@ class _$LoadingAppEventImpl implements LoadingAppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitAppEvent value) init,
     required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
     required TResult Function(ErrorAppEvent value) error,
     required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
   }) {
     return loading(this);
   }
@@ -533,8 +754,11 @@ class _$LoadingAppEventImpl implements LoadingAppEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitAppEvent value)? init,
     TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
     TResult? Function(ErrorAppEvent value)? error,
     TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
   }) {
     return loading?.call(this);
   }
@@ -544,8 +768,11 @@ class _$LoadingAppEventImpl implements LoadingAppEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitAppEvent value)? init,
     TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
     TResult Function(ErrorAppEvent value)? error,
     TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -560,13 +787,288 @@ abstract class LoadingAppEvent implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$AnimationAppEventImplCopyWith<$Res> {
+  factory _$$AnimationAppEventImplCopyWith(
+    _$AnimationAppEventImpl value,
+    $Res Function(_$AnimationAppEventImpl) then,
+  ) = __$$AnimationAppEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AnimationAppEventImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$AnimationAppEventImpl>
+    implements _$$AnimationAppEventImplCopyWith<$Res> {
+  __$$AnimationAppEventImplCopyWithImpl(
+    _$AnimationAppEventImpl _value,
+    $Res Function(_$AnimationAppEventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AnimationAppEventImpl implements AnimationAppEvent {
+  const _$AnimationAppEventImpl();
+
+  @override
+  String toString() {
+    return 'AppEvent.animation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AnimationAppEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() login,
+    required TResult Function() logOut,
+    required TResult Function() error,
+    required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
+  }) {
+    return animation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? login,
+    TResult? Function()? logOut,
+    TResult? Function()? error,
+    TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
+  }) {
+    return animation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? login,
+    TResult Function()? logOut,
+    TResult Function()? error,
+    TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
+    required TResult orElse(),
+  }) {
+    if (animation != null) {
+      return animation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitAppEvent value) init,
+    required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
+    required TResult Function(ErrorAppEvent value) error,
+    required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
+  }) {
+    return animation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitAppEvent value)? init,
+    TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
+    TResult? Function(ErrorAppEvent value)? error,
+    TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
+  }) {
+    return animation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitAppEvent value)? init,
+    TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
+    TResult Function(ErrorAppEvent value)? error,
+    TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
+    required TResult orElse(),
+  }) {
+    if (animation != null) {
+      return animation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AnimationAppEvent implements AppEvent {
+  const factory AnimationAppEvent() = _$AnimationAppEventImpl;
+}
+
+/// @nodoc
+abstract class _$$WelcomeAppEventImplCopyWith<$Res> {
+  factory _$$WelcomeAppEventImplCopyWith(
+    _$WelcomeAppEventImpl value,
+    $Res Function(_$WelcomeAppEventImpl) then,
+  ) = __$$WelcomeAppEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WelcomeAppEventImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$WelcomeAppEventImpl>
+    implements _$$WelcomeAppEventImplCopyWith<$Res> {
+  __$$WelcomeAppEventImplCopyWithImpl(
+    _$WelcomeAppEventImpl _value,
+    $Res Function(_$WelcomeAppEventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$WelcomeAppEventImpl implements WelcomeAppEvent {
+  const _$WelcomeAppEventImpl();
+
+  @override
+  String toString() {
+    return 'AppEvent.welcome()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$WelcomeAppEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() login,
+    required TResult Function() logOut,
+    required TResult Function() error,
+    required TResult Function() loading,
+    required TResult Function() animation,
+    required TResult Function() welcome,
+  }) {
+    return welcome();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? login,
+    TResult? Function()? logOut,
+    TResult? Function()? error,
+    TResult? Function()? loading,
+    TResult? Function()? animation,
+    TResult? Function()? welcome,
+  }) {
+    return welcome?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? login,
+    TResult Function()? logOut,
+    TResult Function()? error,
+    TResult Function()? loading,
+    TResult Function()? animation,
+    TResult Function()? welcome,
+    required TResult orElse(),
+  }) {
+    if (welcome != null) {
+      return welcome();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitAppEvent value) init,
+    required TResult Function(LoginAppEvent value) login,
+    required TResult Function(LogOutAppEvent value) logOut,
+    required TResult Function(ErrorAppEvent value) error,
+    required TResult Function(LoadingAppEvent value) loading,
+    required TResult Function(AnimationAppEvent value) animation,
+    required TResult Function(WelcomeAppEvent value) welcome,
+  }) {
+    return welcome(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitAppEvent value)? init,
+    TResult? Function(LoginAppEvent value)? login,
+    TResult? Function(LogOutAppEvent value)? logOut,
+    TResult? Function(ErrorAppEvent value)? error,
+    TResult? Function(LoadingAppEvent value)? loading,
+    TResult? Function(AnimationAppEvent value)? animation,
+    TResult? Function(WelcomeAppEvent value)? welcome,
+  }) {
+    return welcome?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitAppEvent value)? init,
+    TResult Function(LoginAppEvent value)? login,
+    TResult Function(LogOutAppEvent value)? logOut,
+    TResult Function(ErrorAppEvent value)? error,
+    TResult Function(LoadingAppEvent value)? loading,
+    TResult Function(AnimationAppEvent value)? animation,
+    TResult Function(WelcomeAppEvent value)? welcome,
+    required TResult orElse(),
+  }) {
+    if (welcome != null) {
+      return welcome(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WelcomeAppEvent implements AppEvent {
+  const factory WelcomeAppEvent() = _$WelcomeAppEventImpl;
+}
+
+/// @nodoc
 mixin _$AppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) => throw _privateConstructorUsedError;
@@ -575,7 +1077,8 @@ mixin _$AppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) => throw _privateConstructorUsedError;
@@ -584,7 +1087,8 @@ mixin _$AppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
@@ -595,6 +1099,7 @@ mixin _$AppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) => throw _privateConstructorUsedError;
@@ -604,6 +1109,7 @@ mixin _$AppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) => throw _privateConstructorUsedError;
@@ -613,6 +1119,7 @@ mixin _$AppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),
@@ -685,7 +1192,8 @@ class _$LoadingAppStateImpl implements LoadingAppState {
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) {
@@ -698,7 +1206,8 @@ class _$LoadingAppStateImpl implements LoadingAppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) {
@@ -711,7 +1220,8 @@ class _$LoadingAppStateImpl implements LoadingAppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
@@ -729,6 +1239,7 @@ class _$LoadingAppStateImpl implements LoadingAppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) {
@@ -742,6 +1253,7 @@ class _$LoadingAppStateImpl implements LoadingAppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) {
@@ -755,6 +1267,7 @@ class _$LoadingAppStateImpl implements LoadingAppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),
@@ -816,7 +1329,8 @@ class _$MainAppStateImpl implements MainAppState {
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) {
@@ -829,7 +1343,8 @@ class _$MainAppStateImpl implements MainAppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) {
@@ -842,7 +1357,8 @@ class _$MainAppStateImpl implements MainAppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
@@ -860,6 +1376,7 @@ class _$MainAppStateImpl implements MainAppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) {
@@ -873,6 +1390,7 @@ class _$MainAppStateImpl implements MainAppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) {
@@ -886,6 +1404,7 @@ class _$MainAppStateImpl implements MainAppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),
@@ -947,7 +1466,8 @@ class _$LoginAppStateImpl implements LoginAppState {
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) {
@@ -960,7 +1480,8 @@ class _$LoginAppStateImpl implements LoginAppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) {
@@ -973,7 +1494,8 @@ class _$LoginAppStateImpl implements LoginAppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
@@ -991,6 +1513,7 @@ class _$LoginAppStateImpl implements LoginAppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) {
@@ -1004,6 +1527,7 @@ class _$LoginAppStateImpl implements LoginAppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) {
@@ -1017,6 +1541,7 @@ class _$LoginAppStateImpl implements LoginAppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),
@@ -1038,6 +1563,8 @@ abstract class _$$WelcomeAppStateImplCopyWith<$Res> {
     _$WelcomeAppStateImpl value,
     $Res Function(_$WelcomeAppStateImpl) then,
   ) = __$$WelcomeAppStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool showLaunchAnimation});
 }
 
 /// @nodoc
@@ -1051,26 +1578,55 @@ class __$$WelcomeAppStateImplCopyWithImpl<$Res>
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? showLaunchAnimation = null}) {
+    return _then(
+      _$WelcomeAppStateImpl(
+        null == showLaunchAnimation
+            ? _value.showLaunchAnimation
+            : showLaunchAnimation // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
 class _$WelcomeAppStateImpl implements WelcomeAppState {
-  const _$WelcomeAppStateImpl();
+  const _$WelcomeAppStateImpl(this.showLaunchAnimation);
+
+  @override
+  final bool showLaunchAnimation;
 
   @override
   String toString() {
-    return 'AppState.welcome()';
+    return 'AppState.welcome(showLaunchAnimation: $showLaunchAnimation)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WelcomeAppStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$WelcomeAppStateImpl &&
+            (identical(other.showLaunchAnimation, showLaunchAnimation) ||
+                other.showLaunchAnimation == showLaunchAnimation));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, showLaunchAnimation);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WelcomeAppStateImplCopyWith<_$WelcomeAppStateImpl> get copyWith =>
+      __$$WelcomeAppStateImplCopyWithImpl<_$WelcomeAppStateImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1078,11 +1634,12 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) {
-    return welcome();
+    return welcome(showLaunchAnimation);
   }
 
   @override
@@ -1091,11 +1648,12 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) {
-    return welcome?.call();
+    return welcome?.call(showLaunchAnimation);
   }
 
   @override
@@ -1104,13 +1662,14 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
   }) {
     if (welcome != null) {
-      return welcome();
+      return welcome(showLaunchAnimation);
     }
     return orElse();
   }
@@ -1122,6 +1681,7 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) {
@@ -1135,6 +1695,7 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) {
@@ -1148,6 +1709,7 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),
@@ -1160,7 +1722,153 @@ class _$WelcomeAppStateImpl implements WelcomeAppState {
 }
 
 abstract class WelcomeAppState implements AppState {
-  const factory WelcomeAppState() = _$WelcomeAppStateImpl;
+  const factory WelcomeAppState(final bool showLaunchAnimation) =
+      _$WelcomeAppStateImpl;
+
+  bool get showLaunchAnimation;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$WelcomeAppStateImplCopyWith<_$WelcomeAppStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AnimationAppStateImplCopyWith<$Res> {
+  factory _$$AnimationAppStateImplCopyWith(
+    _$AnimationAppStateImpl value,
+    $Res Function(_$AnimationAppStateImpl) then,
+  ) = __$$AnimationAppStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AnimationAppStateImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AnimationAppStateImpl>
+    implements _$$AnimationAppStateImplCopyWith<$Res> {
+  __$$AnimationAppStateImplCopyWithImpl(
+    _$AnimationAppStateImpl _value,
+    $Res Function(_$AnimationAppStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AnimationAppStateImpl implements AnimationAppState {
+  const _$AnimationAppStateImpl();
+
+  @override
+  String toString() {
+    return 'AppState.launchAnimation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AnimationAppStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() main,
+    required TResult Function() login,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
+    required TResult Function() internetError,
+    required TResult Function() pinCode,
+  }) {
+    return launchAnimation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function()? main,
+    TResult? Function()? login,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
+    TResult? Function()? internetError,
+    TResult? Function()? pinCode,
+  }) {
+    return launchAnimation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? main,
+    TResult Function()? login,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
+    TResult Function()? internetError,
+    TResult Function()? pinCode,
+    required TResult orElse(),
+  }) {
+    if (launchAnimation != null) {
+      return launchAnimation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadingAppState value) loading,
+    required TResult Function(MainAppState value) main,
+    required TResult Function(LoginAppState value) login,
+    required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
+    required TResult Function(InternetErrorAppState value) internetError,
+    required TResult Function(PinCodeAppState value) pinCode,
+  }) {
+    return launchAnimation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadingAppState value)? loading,
+    TResult? Function(MainAppState value)? main,
+    TResult? Function(LoginAppState value)? login,
+    TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
+    TResult? Function(InternetErrorAppState value)? internetError,
+    TResult? Function(PinCodeAppState value)? pinCode,
+  }) {
+    return launchAnimation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadingAppState value)? loading,
+    TResult Function(MainAppState value)? main,
+    TResult Function(LoginAppState value)? login,
+    TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
+    TResult Function(InternetErrorAppState value)? internetError,
+    TResult Function(PinCodeAppState value)? pinCode,
+    required TResult orElse(),
+  }) {
+    if (launchAnimation != null) {
+      return launchAnimation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AnimationAppState implements AppState {
+  const factory AnimationAppState() = _$AnimationAppStateImpl;
 }
 
 /// @nodoc
@@ -1210,7 +1918,8 @@ class _$InternetErrorAppStateImpl implements InternetErrorAppState {
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) {
@@ -1223,7 +1932,8 @@ class _$InternetErrorAppStateImpl implements InternetErrorAppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) {
@@ -1236,7 +1946,8 @@ class _$InternetErrorAppStateImpl implements InternetErrorAppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
@@ -1254,6 +1965,7 @@ class _$InternetErrorAppStateImpl implements InternetErrorAppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) {
@@ -1267,6 +1979,7 @@ class _$InternetErrorAppStateImpl implements InternetErrorAppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) {
@@ -1280,6 +1993,7 @@ class _$InternetErrorAppStateImpl implements InternetErrorAppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),
@@ -1341,7 +2055,8 @@ class _$PinCodeAppStateImpl implements PinCodeAppState {
     required TResult Function() loading,
     required TResult Function() main,
     required TResult Function() login,
-    required TResult Function() welcome,
+    required TResult Function(bool showLaunchAnimation) welcome,
+    required TResult Function() launchAnimation,
     required TResult Function() internetError,
     required TResult Function() pinCode,
   }) {
@@ -1354,7 +2069,8 @@ class _$PinCodeAppStateImpl implements PinCodeAppState {
     TResult? Function()? loading,
     TResult? Function()? main,
     TResult? Function()? login,
-    TResult? Function()? welcome,
+    TResult? Function(bool showLaunchAnimation)? welcome,
+    TResult? Function()? launchAnimation,
     TResult? Function()? internetError,
     TResult? Function()? pinCode,
   }) {
@@ -1367,7 +2083,8 @@ class _$PinCodeAppStateImpl implements PinCodeAppState {
     TResult Function()? loading,
     TResult Function()? main,
     TResult Function()? login,
-    TResult Function()? welcome,
+    TResult Function(bool showLaunchAnimation)? welcome,
+    TResult Function()? launchAnimation,
     TResult Function()? internetError,
     TResult Function()? pinCode,
     required TResult orElse(),
@@ -1385,6 +2102,7 @@ class _$PinCodeAppStateImpl implements PinCodeAppState {
     required TResult Function(MainAppState value) main,
     required TResult Function(LoginAppState value) login,
     required TResult Function(WelcomeAppState value) welcome,
+    required TResult Function(AnimationAppState value) launchAnimation,
     required TResult Function(InternetErrorAppState value) internetError,
     required TResult Function(PinCodeAppState value) pinCode,
   }) {
@@ -1398,6 +2116,7 @@ class _$PinCodeAppStateImpl implements PinCodeAppState {
     TResult? Function(MainAppState value)? main,
     TResult? Function(LoginAppState value)? login,
     TResult? Function(WelcomeAppState value)? welcome,
+    TResult? Function(AnimationAppState value)? launchAnimation,
     TResult? Function(InternetErrorAppState value)? internetError,
     TResult? Function(PinCodeAppState value)? pinCode,
   }) {
@@ -1411,6 +2130,7 @@ class _$PinCodeAppStateImpl implements PinCodeAppState {
     TResult Function(MainAppState value)? main,
     TResult Function(LoginAppState value)? login,
     TResult Function(WelcomeAppState value)? welcome,
+    TResult Function(AnimationAppState value)? launchAnimation,
     TResult Function(InternetErrorAppState value)? internetError,
     TResult Function(PinCodeAppState value)? pinCode,
     required TResult orElse(),

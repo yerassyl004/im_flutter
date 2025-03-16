@@ -15,6 +15,12 @@ class AppTextStyle {
       fontWeight: FontWeight.w600,
   );
 
+  static TextStyle body14Regular() => TextStyle(
+     color: AppColors.black,
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400,
+  );
+
   static TextStyle body14Medium() => TextStyle(
      color: AppColors.black,
       fontSize: 14.sp,

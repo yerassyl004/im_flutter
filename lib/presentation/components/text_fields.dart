@@ -28,6 +28,8 @@ class CountryNumberTextField extends StatefulWidget {
   final Function(String)? onFinish;
   final TextInputAction? textInputAction;
   final bool Function(String)? validator;
+  final VoidCallback? onFocus;
+  final VoidCallback? onUnfocus;
 
   const CountryNumberTextField({
     super.key,
@@ -49,6 +51,8 @@ class CountryNumberTextField extends StatefulWidget {
     this.onFinish,
     this.textInputAction,
     this.validator,
+    this.onFocus,
+    this.onUnfocus,
   });
 
   @override
@@ -70,6 +74,13 @@ class _CountryNumberTextFieldState extends State<CountryNumberTextField> {
       setState(() {
         isFocused = editFocusNode.hasFocus;
       });
+
+      if (editFocusNode.hasFocus) {
+        widget.onFocus?.call();
+      } else {
+        widget.onUnfocus?.call();
+        widget.onFinish?.call(controller.text);
+      }
     });
 
     controller.addListener(() {
@@ -87,22 +98,22 @@ class _CountryNumberTextFieldState extends State<CountryNumberTextField> {
   @override
   Widget build(BuildContext context) {
     final textStyle = widget.textStyle ??
-        AppTextStyle.body15Medium().copyWith(color: AppColors.black);
+        TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.black);
 
     return Container(
-      height: 60.h,
-      padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 13.w),
+      height: 60,
+      padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 13),
       decoration: widget.decoration ??
           BoxDecoration(
-            color: AppColors.white,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(15),
           ),
       child: Row(
         children: [
-          Image.asset(widget.flagAsset, width: 33.w, height: 18.h),
-          8.pw,
+          Image.asset(widget.flagAsset, width: 33, height: 18),
+          const SizedBox(width: 8),
           Text(widget.countryCode, style: textStyle),
-          8.pw,
+          const SizedBox(width: 8),
           Expanded(
             child: Stack(
               alignment: Alignment.centerRight,
@@ -120,12 +131,14 @@ class _CountryNumberTextFieldState extends State<CountryNumberTextField> {
                   autofocus: widget.autofocus ?? false,
                   textInputAction: widget.textInputAction ?? TextInputAction.next,
                   decoration: InputDecoration(
-                    hintStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                    hintStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.zero,
                     hintText: widget.hintText,
                   ),
-                  onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+                  onTapOutside: (event) {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                 ),
 
                 if (isFocused)
@@ -134,9 +147,8 @@ class _CountryNumberTextFieldState extends State<CountryNumberTextField> {
                     child: GestureDetector(
                       onTap: () {
                         editFocusNode.unfocus();
-                        widget.onFinish?.call(controller.text);
                       },
-                      child: Image.asset('assets/images/done.png', width: 30.w, height: 30.h),
+                      child: Image.asset('assets/images/done.png', width: 30, height: 30),
                     ),
                   ),
               ],

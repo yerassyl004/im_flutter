@@ -21,7 +21,7 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -34,7 +34,7 @@ mixin _$LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -47,7 +47,7 @@ mixin _$LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -174,7 +174,7 @@ class _$InitLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -191,7 +191,7 @@ class _$InitLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -208,7 +208,7 @@ class _$InitLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -381,7 +381,7 @@ class _$SubmitLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -398,7 +398,7 @@ class _$SubmitLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -415,7 +415,7 @@ class _$SubmitLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -505,6 +505,10 @@ abstract class _$$EditNumberLoginEventImplCopyWith<$Res> {
     _$EditNumberLoginEventImpl value,
     $Res Function(_$EditNumberLoginEventImpl) then,
   ) = __$$EditNumberLoginEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({LoginData data, dynamic isEditing});
+
+  $LoginDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -518,6 +522,29 @@ class __$$EditNumberLoginEventImplCopyWithImpl<$Res>
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? data = null, Object? isEditing = freezed}) {
+    return _then(
+      _$EditNumberLoginEventImpl(
+        null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as LoginData,
+        freezed == isEditing ? _value.isEditing! : isEditing,
+      ),
+    );
+  }
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LoginDataCopyWith<$Res> get data {
+    return $LoginDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -525,35 +552,62 @@ class __$$EditNumberLoginEventImplCopyWithImpl<$Res>
 class _$EditNumberLoginEventImpl
     with DiagnosticableTreeMixin
     implements EditNumberLoginEvent {
-  const _$EditNumberLoginEventImpl();
+  const _$EditNumberLoginEventImpl(this.data, [this.isEditing = false]);
+
+  @override
+  final LoginData data;
+  @override
+  @JsonKey()
+  final dynamic isEditing;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginEvent.editNumber()';
+    return 'LoginEvent.editNumber(data: $data, isEditing: $isEditing)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'LoginEvent.editNumber'));
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.editNumber'))
+      ..add(DiagnosticsProperty('data', data))
+      ..add(DiagnosticsProperty('isEditing', isEditing));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditNumberLoginEventImpl);
+            other is _$EditNumberLoginEventImpl &&
+            (identical(other.data, data) || other.data == data) &&
+            const DeepCollectionEquality().equals(other.isEditing, isEditing));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+    runtimeType,
+    data,
+    const DeepCollectionEquality().hash(isEditing),
+  );
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditNumberLoginEventImplCopyWith<_$EditNumberLoginEventImpl>
+  get copyWith =>
+      __$$EditNumberLoginEventImplCopyWithImpl<_$EditNumberLoginEventImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -562,7 +616,7 @@ class _$EditNumberLoginEventImpl
     required TResult Function() loading,
     required TResult Function(Dest dest) navigate,
   }) {
-    return editNumber();
+    return editNumber(data, isEditing);
   }
 
   @override
@@ -570,7 +624,7 @@ class _$EditNumberLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -579,7 +633,7 @@ class _$EditNumberLoginEventImpl
     TResult? Function()? loading,
     TResult? Function(Dest dest)? navigate,
   }) {
-    return editNumber?.call();
+    return editNumber?.call(data, isEditing);
   }
 
   @override
@@ -587,7 +641,7 @@ class _$EditNumberLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -598,7 +652,7 @@ class _$EditNumberLoginEventImpl
     required TResult orElse(),
   }) {
     if (editNumber != null) {
-      return editNumber();
+      return editNumber(data, isEditing);
     }
     return orElse();
   }
@@ -660,7 +714,19 @@ class _$EditNumberLoginEventImpl
 }
 
 abstract class EditNumberLoginEvent implements LoginEvent {
-  const factory EditNumberLoginEvent() = _$EditNumberLoginEventImpl;
+  const factory EditNumberLoginEvent(
+    final LoginData data, [
+    final dynamic isEditing,
+  ]) = _$EditNumberLoginEventImpl;
+
+  LoginData get data;
+  dynamic get isEditing;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditNumberLoginEventImplCopyWith<_$EditNumberLoginEventImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -757,7 +823,7 @@ class _$SmsLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -774,7 +840,7 @@ class _$SmsLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -791,7 +857,7 @@ class _$SmsLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -973,7 +1039,7 @@ class _$EditUserNameLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -990,7 +1056,7 @@ class _$EditUserNameLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -1007,7 +1073,7 @@ class _$EditUserNameLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -1189,7 +1255,7 @@ class _$UserNameLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -1206,7 +1272,7 @@ class _$UserNameLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -1223,7 +1289,7 @@ class _$UserNameLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -1405,7 +1471,7 @@ class _$HolidayLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -1422,7 +1488,7 @@ class _$HolidayLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -1439,7 +1505,7 @@ class _$HolidayLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -1577,7 +1643,7 @@ class _$ErrorLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -1594,7 +1660,7 @@ class _$ErrorLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -1611,7 +1677,7 @@ class _$ErrorLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -1740,7 +1806,7 @@ class _$LoadingLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -1757,7 +1823,7 @@ class _$LoadingLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -1774,7 +1840,7 @@ class _$LoadingLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -1935,7 +2001,7 @@ class _$NavigateLoginEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(LoginData data) submit,
-    required TResult Function() editNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editNumber,
     required TResult Function(LoginData data) sms,
     required TResult Function(LoginData data) editUserName,
     required TResult Function(LoginData data) address,
@@ -1952,7 +2018,7 @@ class _$NavigateLoginEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(LoginData data)? submit,
-    TResult? Function()? editNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editNumber,
     TResult? Function(LoginData data)? sms,
     TResult? Function(LoginData data)? editUserName,
     TResult? Function(LoginData data)? address,
@@ -1969,7 +2035,7 @@ class _$NavigateLoginEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(LoginData data)? submit,
-    TResult Function()? editNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editNumber,
     TResult Function(LoginData data)? sms,
     TResult Function(LoginData data)? editUserName,
     TResult Function(LoginData data)? address,
@@ -2058,7 +2124,7 @@ mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -2072,7 +2138,7 @@ mixin _$LoginState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -2086,7 +2152,7 @@ mixin _$LoginState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -2218,7 +2284,7 @@ class _$InitialLoginEventImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -2236,7 +2302,7 @@ class _$InitialLoginEventImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -2254,7 +2320,7 @@ class _$InitialLoginEventImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -2343,7 +2409,7 @@ abstract class _$$EditingNumberLoginStateImplCopyWith<$Res> {
     $Res Function(_$EditingNumberLoginStateImpl) then,
   ) = __$$EditingNumberLoginStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({LoginData data});
+  $Res call({LoginData data, dynamic isEditing});
 
   $LoginDataCopyWith<$Res> get data;
 }
@@ -2361,13 +2427,14 @@ class __$$EditingNumberLoginStateImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? data = null}) {
+  $Res call({Object? data = null, Object? isEditing = freezed}) {
     return _then(
       _$EditingNumberLoginStateImpl(
         null == data
             ? _value.data
             : data // ignore: cast_nullable_to_non_nullable
                 as LoginData,
+        freezed == isEditing ? _value.isEditing! : isEditing,
       ),
     );
   }
@@ -2388,14 +2455,17 @@ class __$$EditingNumberLoginStateImplCopyWithImpl<$Res>
 class _$EditingNumberLoginStateImpl
     with DiagnosticableTreeMixin
     implements EditingNumberLoginState {
-  const _$EditingNumberLoginStateImpl(this.data);
+  const _$EditingNumberLoginStateImpl(this.data, [this.isEditing = false]);
 
   @override
   final LoginData data;
+  @override
+  @JsonKey()
+  final dynamic isEditing;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginState.editingNumber(data: $data)';
+    return 'LoginState.editingNumber(data: $data, isEditing: $isEditing)';
   }
 
   @override
@@ -2403,7 +2473,8 @@ class _$EditingNumberLoginStateImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'LoginState.editingNumber'))
-      ..add(DiagnosticsProperty('data', data));
+      ..add(DiagnosticsProperty('data', data))
+      ..add(DiagnosticsProperty('isEditing', isEditing));
   }
 
   @override
@@ -2411,11 +2482,16 @@ class _$EditingNumberLoginStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EditingNumberLoginStateImpl &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            const DeepCollectionEquality().equals(other.isEditing, isEditing));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(
+    runtimeType,
+    data,
+    const DeepCollectionEquality().hash(isEditing),
+  );
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -2431,7 +2507,7 @@ class _$EditingNumberLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -2442,14 +2518,14 @@ class _$EditingNumberLoginStateImpl
     required TResult Function(LoginData data) permissionLocation,
     required TResult Function(Dest dest) navigate,
   }) {
-    return editingNumber(data);
+    return editingNumber(data, isEditing);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -2460,14 +2536,14 @@ class _$EditingNumberLoginStateImpl
     TResult? Function(LoginData data)? permissionLocation,
     TResult? Function(Dest dest)? navigate,
   }) {
-    return editingNumber?.call(data);
+    return editingNumber?.call(data, isEditing);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -2480,7 +2556,7 @@ class _$EditingNumberLoginStateImpl
     required TResult orElse(),
   }) {
     if (editingNumber != null) {
-      return editingNumber(data);
+      return editingNumber(data, isEditing);
     }
     return orElse();
   }
@@ -2546,10 +2622,13 @@ class _$EditingNumberLoginStateImpl
 }
 
 abstract class EditingNumberLoginState implements LoginState {
-  const factory EditingNumberLoginState(final LoginData data) =
-      _$EditingNumberLoginStateImpl;
+  const factory EditingNumberLoginState(
+    final LoginData data, [
+    final dynamic isEditing,
+  ]) = _$EditingNumberLoginStateImpl;
 
   LoginData get data;
+  dynamic get isEditing;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -2653,7 +2732,7 @@ class _$EditingUserNameLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -2671,7 +2750,7 @@ class _$EditingUserNameLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -2689,7 +2768,7 @@ class _$EditingUserNameLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -2875,7 +2954,7 @@ class _$EditingAddressLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -2893,7 +2972,7 @@ class _$EditingAddressLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -2911,7 +2990,7 @@ class _$EditingAddressLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -3095,7 +3174,7 @@ class _$SmsLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -3113,7 +3192,7 @@ class _$SmsLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -3131,7 +3210,7 @@ class _$SmsLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -3273,7 +3352,7 @@ class _$LoadingLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -3291,7 +3370,7 @@ class _$LoadingLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -3309,7 +3388,7 @@ class _$LoadingLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -3487,7 +3566,7 @@ class _$HolidaysLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -3505,7 +3584,7 @@ class _$HolidaysLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -3523,7 +3602,7 @@ class _$HolidaysLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -3710,7 +3789,7 @@ class _$SuccessLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -3728,7 +3807,7 @@ class _$SuccessLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -3746,7 +3825,7 @@ class _$SuccessLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -3921,7 +4000,7 @@ class _$ErrorLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -3939,7 +4018,7 @@ class _$ErrorLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -3957,7 +4036,7 @@ class _$ErrorLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -4144,7 +4223,7 @@ class _$PermissionLocationLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -4162,7 +4241,7 @@ class _$PermissionLocationLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -4180,7 +4259,7 @@ class _$PermissionLocationLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
@@ -4357,7 +4436,7 @@ class _$NavigateLoginStateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
-    required TResult Function(LoginData data) editingNumber,
+    required TResult Function(LoginData data, dynamic isEditing) editingNumber,
     required TResult Function(LoginData data) editingUserName,
     required TResult Function(LoginData data) editingAddress,
     required TResult Function(LoginData data) sms,
@@ -4375,7 +4454,7 @@ class _$NavigateLoginStateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? inital,
-    TResult? Function(LoginData data)? editingNumber,
+    TResult? Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult? Function(LoginData data)? editingUserName,
     TResult? Function(LoginData data)? editingAddress,
     TResult? Function(LoginData data)? sms,
@@ -4393,7 +4472,7 @@ class _$NavigateLoginStateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
-    TResult Function(LoginData data)? editingNumber,
+    TResult Function(LoginData data, dynamic isEditing)? editingNumber,
     TResult Function(LoginData data)? editingUserName,
     TResult Function(LoginData data)? editingAddress,
     TResult Function(LoginData data)? sms,
