@@ -41,9 +41,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   Future<void> _init(InitAppEvent event, Emitter<AppState> emit) async {
     final login = await Cache.getBool(loginKey);
     if (login) {
-      emit(const AppState.main());
+      emit(AppState.main());
     } else {
-      emit(AppState.welcome(false));
+      emit(AppState.welcome(true));
     }
   }
 

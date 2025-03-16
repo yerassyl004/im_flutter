@@ -1428,6 +1428,7 @@ abstract class ErrorFoodState extends FoodState {
 /// @nodoc
 mixin _$FoodData {
   RecomendFood get food => throw _privateConstructorUsedError;
+  bool get isAdded => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
   double get totalAmount => throw _privateConstructorUsedError;
 
@@ -1443,7 +1444,7 @@ abstract class $FoodDataCopyWith<$Res> {
   factory $FoodDataCopyWith(FoodData value, $Res Function(FoodData) then) =
       _$FoodDataCopyWithImpl<$Res, FoodData>;
   @useResult
-  $Res call({RecomendFood food, int count, double totalAmount});
+  $Res call({RecomendFood food, bool isAdded, int count, double totalAmount});
 }
 
 /// @nodoc
@@ -1462,6 +1463,7 @@ class _$FoodDataCopyWithImpl<$Res, $Val extends FoodData>
   @override
   $Res call({
     Object? food = null,
+    Object? isAdded = null,
     Object? count = null,
     Object? totalAmount = null,
   }) {
@@ -1472,6 +1474,11 @@ class _$FoodDataCopyWithImpl<$Res, $Val extends FoodData>
                     ? _value.food
                     : food // ignore: cast_nullable_to_non_nullable
                         as RecomendFood,
+            isAdded:
+                null == isAdded
+                    ? _value.isAdded
+                    : isAdded // ignore: cast_nullable_to_non_nullable
+                        as bool,
             count:
                 null == count
                     ? _value.count
@@ -1497,7 +1504,7 @@ abstract class _$$FoodDataImplCopyWith<$Res>
   ) = __$$FoodDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RecomendFood food, int count, double totalAmount});
+  $Res call({RecomendFood food, bool isAdded, int count, double totalAmount});
 }
 
 /// @nodoc
@@ -1515,6 +1522,7 @@ class __$$FoodDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? food = null,
+    Object? isAdded = null,
     Object? count = null,
     Object? totalAmount = null,
   }) {
@@ -1525,6 +1533,11 @@ class __$$FoodDataImplCopyWithImpl<$Res>
                 ? _value.food
                 : food // ignore: cast_nullable_to_non_nullable
                     as RecomendFood,
+        isAdded:
+            null == isAdded
+                ? _value.isAdded
+                : isAdded // ignore: cast_nullable_to_non_nullable
+                    as bool,
         count:
             null == count
                 ? _value.count
@@ -1545,12 +1558,16 @@ class __$$FoodDataImplCopyWithImpl<$Res>
 class _$FoodDataImpl with DiagnosticableTreeMixin implements _FoodData {
   const _$FoodDataImpl({
     required this.food,
+    this.isAdded = false,
     this.count = 0,
     this.totalAmount = 0.0,
   });
 
   @override
   final RecomendFood food;
+  @override
+  @JsonKey()
+  final bool isAdded;
   @override
   @JsonKey()
   final int count;
@@ -1560,7 +1577,7 @@ class _$FoodDataImpl with DiagnosticableTreeMixin implements _FoodData {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FoodData(food: $food, count: $count, totalAmount: $totalAmount)';
+    return 'FoodData(food: $food, isAdded: $isAdded, count: $count, totalAmount: $totalAmount)';
   }
 
   @override
@@ -1569,6 +1586,7 @@ class _$FoodDataImpl with DiagnosticableTreeMixin implements _FoodData {
     properties
       ..add(DiagnosticsProperty('type', 'FoodData'))
       ..add(DiagnosticsProperty('food', food))
+      ..add(DiagnosticsProperty('isAdded', isAdded))
       ..add(DiagnosticsProperty('count', count))
       ..add(DiagnosticsProperty('totalAmount', totalAmount));
   }
@@ -1579,13 +1597,15 @@ class _$FoodDataImpl with DiagnosticableTreeMixin implements _FoodData {
         (other.runtimeType == runtimeType &&
             other is _$FoodDataImpl &&
             (identical(other.food, food) || other.food == food) &&
+            (identical(other.isAdded, isAdded) || other.isAdded == isAdded) &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.totalAmount, totalAmount) ||
                 other.totalAmount == totalAmount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, food, count, totalAmount);
+  int get hashCode =>
+      Object.hash(runtimeType, food, isAdded, count, totalAmount);
 
   /// Create a copy of FoodData
   /// with the given fields replaced by the non-null parameter values.
@@ -1599,12 +1619,15 @@ class _$FoodDataImpl with DiagnosticableTreeMixin implements _FoodData {
 abstract class _FoodData implements FoodData {
   const factory _FoodData({
     required final RecomendFood food,
+    final bool isAdded,
     final int count,
     final double totalAmount,
   }) = _$FoodDataImpl;
 
   @override
   RecomendFood get food;
+  @override
+  bool get isAdded;
   @override
   int get count;
   @override

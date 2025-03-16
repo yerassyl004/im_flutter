@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:im_flutter/app/main_navigation.dart';
 import 'package:im_flutter/app/utils/sized_box_extension.dart';
+import 'package:im_flutter/presentation/food_details/views/food.dart';
 import 'package:im_flutter/presentation/home/bloc/home.dart';
 import 'package:im_flutter/presentation/resources/colors.dart';
 import 'package:im_flutter/presentation/resources/font_styles.dart';
@@ -23,10 +24,11 @@ class RecomendList extends StatelessWidget {
           final food = data.recomend_food[index];
           return GestureDetector(
             onTap: () {
-              print('object');
-              context.pushNamed(MainNavigation.foodDetails);
+              print(food.assets);
+              context.pushNamed(MainNavigation.foodDetails, extra: food);
             },
-            child: Padding(
+            child: Container(
+              color: Colors.transparent,
               padding: EdgeInsets.only(right: 15.w),
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
@@ -40,7 +42,7 @@ class RecomendList extends StatelessWidget {
                       left: 8.w,
                       child: Container(
                         width: 154.w,
-            
+
                         decoration: BoxDecoration(
                           color: AppColors.red,
                           boxShadow: [
@@ -74,9 +76,8 @@ class RecomendList extends StatelessWidget {
                                   5.pw,
                                   Text(
                                     '${food.time} Minutes',
-                                    style: AppTextStyle.body12Regular().copyWith(
-                                      color: AppColors.white,
-                                    ),
+                                    style: AppTextStyle.body12Regular()
+                                        .copyWith(color: AppColors.white),
                                   ),
                                 ],
                               ),

@@ -75,6 +75,9 @@ class LoginNumberEdit extends StatelessWidget {
                       textStyle: AppTextStyle.body15Bold(),
                       onChanged: (text) {
                         final number = text.replaceAll(' ', '');
+                        if (number.length == 10) {
+                          FocusScope.of(context).unfocus();
+                        }
                         context.read<LoginBloc>().add(
                           LoginEvent.editNumber(
                             data.copyWith(number: number),

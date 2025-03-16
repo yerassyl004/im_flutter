@@ -17,7 +17,7 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    context.read<AppBloc>().add(AppEvent.animation());
+    context.read<AppBloc>().add(AppEvent.init());
   }
 
   @override

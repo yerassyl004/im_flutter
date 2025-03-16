@@ -33,6 +33,7 @@ class FoodState with _$FoodState {
 class FoodData with _$FoodData {
   const factory FoodData({
     required RecomendFood food,
+    @Default(false) bool isAdded,
     @Default(0) int count,
     @Default(0.0) double totalAmount,
   }) = _FoodData;
@@ -46,7 +47,7 @@ class FoodsBloc extends Bloc<FoodEvent, FoodState> {
   }
 
   Future<void> _editing(EditFoodEvent event, Emitter<FoodState> emit) async {
-    add(FoodEvent.edit(event.data));
+    emit(FoodState.editing(event.data));
   }
 
   Future<void> _navigate(

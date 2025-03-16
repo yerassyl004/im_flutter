@@ -47,8 +47,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<InitialHomeEvent>(_initial);
     on<NavigateHomeEvent>(_navigate);
     on<LoadHomeEvent>(_load);
-
-    add(HomeEvent.loadData());
   }
 
   Future<void> _initial(InitialHomeEvent event, Emitter<HomeState> emit) async {

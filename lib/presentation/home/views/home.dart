@@ -7,6 +7,7 @@ import 'package:im_flutter/app/utils/sized_box_extension.dart';
 import 'package:im_flutter/presentation/components/animations.dart';
 import 'package:im_flutter/presentation/components/home_header_view.dart';
 import 'package:im_flutter/presentation/home/bloc/home.dart';
+import 'package:im_flutter/presentation/home/di.dart';
 import 'package:im_flutter/presentation/home/views/widgets/foods_list.dart';
 import 'package:im_flutter/presentation/home/views/widgets/recomend_list.dart';
 import 'package:im_flutter/presentation/resources/font_styles.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
-      create: (_) => getIt.get<HomeBloc>(),
+      create: (_) => di.getHomeBloc()..add(HomeEvent.loadData()),
       child: HomePageView(),
     );
   }
@@ -32,7 +33,7 @@ class HomePageView extends StatelessWidget {
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return state.maybeWhen(
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => Center(child: CircularProgressIndicator()),
             loaded: (data) => Column(
               children: [
                 HomeHeaderView(),
