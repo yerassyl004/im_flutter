@@ -172,95 +172,98 @@ class _FoodPreviewState extends State<FoodPreview> {
             alignment: Alignment.bottomCenter,
             child:
                 _isDismissed
-                    ? SizedBox(
-                      height: 57.h,
-                      width: double.infinity,
-                      child: Row(
-                        children: [
-                          21.pw,
-                          GestureDetector(
-                            onTap: () {
-                              if (widget.data.count > 0) {
+                    ? Padding(
+                      padding: EdgeInsets.only(bottom: 12.h),
+                      child: SizedBox(
+                        height: 57.h,
+                        width: double.infinity,
+                        child: Row(
+                          children: [
+                            21.pw,
+                            GestureDetector(
+                              onTap: () {
+                                if (widget.data.count > 0) {
+                                  context.read<FoodsBloc>().add(
+                                    FoodEvent.edit(
+                                      widget.data.copyWith(
+                                        count: widget.data.count - 1,
+                                      ),
+                                    ),
+                                  );
+                                }
+                              },
+                              child: Container(
+                                width: 40.w,
+                                height: 37.h,
+                                decoration: BoxDecoration(
+                                  color: AppColors.red,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '-',
+                                    style: AppTextStyle.bold30().copyWith(
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            13.pw,
+                            Text(
+                              widget.data.count.toString(),
+                              style: AppTextStyle.body20Medium().copyWith(
+                                color: AppColors.red,
+                              ),
+                            ),
+                            13.pw,
+                            GestureDetector(
+                              onTap: () {
                                 context.read<FoodsBloc>().add(
                                   FoodEvent.edit(
                                     widget.data.copyWith(
-                                      count: widget.data.count - 1,
+                                      count: widget.data.count + 1,
                                     ),
                                   ),
                                 );
-                              }
-                            },
-                            child: Container(
-                              width: 40.w,
-                              height: 37.h,
-                              decoration: BoxDecoration(
-                                color: AppColors.red,
-                                shape: BoxShape.circle,
+                              },
+                              child: Container(
+                                width: 40.w,
+                                height: 37.h,
+                                decoration: BoxDecoration(
+                                  color: AppColors.red,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '+',
+                                    style: AppTextStyle.bold30().copyWith(
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                ),
                               ),
-                              child: Center(
+                            ),
+                            31.pw,
+                            SizedBox(
+                              width: 185.w,
+                              child: ElevatedButton(
+                                style: AppButtonStyles.buttonStyle57(
+                                  context,
+                                  radius: 15,
+                                  backgroundColor: AppColors.red,
+                                ),
+                                onPressed: _addToCart,
                                 child: Text(
-                                  '-',
-                                  style: AppTextStyle.bold30().copyWith(
+                                  'Добавить',
+                                  style: AppTextStyle.body18Medium().copyWith(
                                     color: AppColors.white,
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          13.pw,
-                          Text(
-                            widget.data.count.toString(),
-                            style: AppTextStyle.body20Medium().copyWith(
-                              color: AppColors.red,
-                            ),
-                          ),
-                          13.pw,
-                          GestureDetector(
-                            onTap: () {
-                              context.read<FoodsBloc>().add(
-                                FoodEvent.edit(
-                                  widget.data.copyWith(
-                                    count: widget.data.count + 1,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Container(
-                              width: 40.w,
-                              height: 37.h,
-                              decoration: BoxDecoration(
-                                color: AppColors.red,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '+',
-                                  style: AppTextStyle.bold30().copyWith(
-                                    color: AppColors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          31.pw,
-                          SizedBox(
-                            width: 185.w,
-                            child: ElevatedButton(
-                              style: AppButtonStyles.buttonStyle57(
-                                context,
-                                radius: 15,
-                                backgroundColor: AppColors.red,
-                              ),
-                              onPressed: _addToCart,
-                              child: Text(
-                                'Добавить',
-                                style: AppTextStyle.body18Medium().copyWith(
-                                  color: AppColors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     )
                     : Padding(
