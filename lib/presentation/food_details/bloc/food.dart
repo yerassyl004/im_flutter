@@ -40,14 +40,20 @@ class FoodData with _$FoodData {
 }
 
 class FoodsBloc extends Bloc<FoodEvent, FoodState> {
-
   FoodsBloc() : super(const InitialFoodState()) {
     on<EditFoodEvent>(_editing);
     on<NavigateFoodEvent>(_navigate);
   }
 
   Future<void> _editing(EditFoodEvent event, Emitter<FoodState> emit) async {
-    emit(FoodState.editing(event.data));
+    final amount = event.data.food.amount;
+    emit(
+      FoodState.editing(
+        event.data.copyWith(
+          totalAmount: double.parse(amount) * event.data.count,
+        ),
+      ),
+    );
   }
 
   Future<void> _navigate(

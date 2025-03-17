@@ -29,7 +29,7 @@ class _FoodPreviewState extends State<FoodPreview> {
 
     Future.delayed(Duration(milliseconds: 500), () {
       context.read<FoodsBloc>().add(
-        FoodEvent.edit(widget.data.copyWith(isAdded: true)),
+        FoodEvent.edit(widget.data.copyWith(isAdded: true, count: widget.data.count + 1)),
       );
     });
   }
@@ -122,7 +122,7 @@ class _FoodPreviewState extends State<FoodPreview> {
                   children: [
                     Text(widget.data.food.name, style: AppTextStyle.bold25()),
                     Text(
-                      widget.data.food.amount,
+                      '${widget.data.totalAmount.toInt()}тг',
                       style: AppTextStyle.bold30().copyWith(
                         color: AppColors.red,
                       ),
@@ -160,7 +160,7 @@ class _FoodPreviewState extends State<FoodPreview> {
               ),
               if(!_isDismissed)
               Text(
-                widget.data.food.amount,
+                '${widget.data.food.amount}тг',
                 style: AppTextStyle.bold30().copyWith(color: AppColors.white),
               ),
             ],
